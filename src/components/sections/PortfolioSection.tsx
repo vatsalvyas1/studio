@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { useState } from 'react';
-import { AnimatedElement } from '@/components/animated-element';
 import { Plus } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const portfolioItems = [
   { src: 'https://placehold.co/600x400.png', alt: 'Project One', hint: 'web design app' },
@@ -19,24 +19,58 @@ const portfolioItems = [
 const PortfolioSection = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
+  const headingVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  const galleryVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  };
+
   return (
     <section id="portfolio" className="py-20 lg:py-32 bg-card">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedElement>
-          <div className="text-center mb-12">
-            <h2 className="font-headline text-3xl md:text-4xl font-bold">Our Work</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              A glimpse into the successful projects we've delivered for our clients.
-            </p>
-          </div>
-        </AnimatedElement>
+        <motion.div
+          variants={headingVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">Our Work</h2>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+            A glimpse into the successful projects we've delivered for our clients.
+          </p>
+        </motion.div>
 
         <Dialog onOpenChange={(open) => !open && setSelectedImage(null)}>
-          <div className="columns-2 md:columns-3 gap-4">
+          <motion.div 
+            className="columns-2 md:columns-3 gap-4"
+            variants={galleryVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {portfolioItems.map((item, index) => (
-              <AnimatedElement key={index} delay={index * 100}>
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="mb-4 break-inside-avoid group relative cursor-pointer"
+              >
                 <DialogTrigger asChild onClick={() => setSelectedImage(item.src)}>
-                  <div className="mb-4 break-inside-avoid group relative cursor-pointer">
+                  <div>
                     <Card className="overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-xl rounded-lg">
                       <Image
                         src={item.src}
@@ -52,9 +86,9 @@ const PortfolioSection = () => {
                      </div>
                   </div>
                 </DialogTrigger>
-              </AnimatedElement>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           <DialogContent className="max-w-4xl p-0 border-0 bg-transparent">
             {selectedImage && (

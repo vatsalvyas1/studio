@@ -1,7 +1,9 @@
+"use client";
+
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { AnimatedElement } from '@/components/animated-element';
+import { motion } from 'framer-motion';
 
 const testimonials = [
   {
@@ -25,19 +27,34 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
+  const variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
     <section id="testimonials" className="py-20 lg:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedElement>
+        <motion.div
+          variants={variants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+        >
           <div className="text-center mb-12">
             <h2 className="font-headline text-3xl md:text-4xl font-bold">What Our Clients Say</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
               We are proud to have earned the trust of our amazing clients.
             </p>
           </div>
-        </AnimatedElement>
+        </motion.div>
 
-        <AnimatedElement delay={200}>
+        <motion.div
+          variants={variants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <Carousel
             opts={{
               align: 'start',
@@ -67,7 +84,7 @@ const TestimonialsSection = () => {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-        </AnimatedElement>
+        </motion.div>
       </div>
     </section>
   );

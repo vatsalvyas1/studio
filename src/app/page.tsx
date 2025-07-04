@@ -4,7 +4,6 @@ import AboutSection from '@/components/sections/AboutSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import PortfolioSection from '@/components/sections/PortfolioSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
-import AiToolSection from '@/components/sections/AiToolSection';
 import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/layout/Footer';
 
@@ -18,7 +17,6 @@ export default function Home() {
         <ServicesSection />
         <PortfolioSection />
         <TestimonialsSection />
-        <AiToolSection />
         <ContactSection />
       </main>
       <Footer />

@@ -93,13 +93,15 @@
   .animation-delay-4000 {
     animation-delay: 4s;
   }
-  .fade-in-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  .grid-background {
+    background-image:
+      linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
-  .fade-in-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+  .dark .grid-background {
+     background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
   }
 }

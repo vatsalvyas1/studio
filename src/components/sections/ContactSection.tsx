@@ -7,10 +7,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { AnimatedElement } from '@/components/animated-element';
 import Image from 'next/image';
 import { Send, MapPin, Phone, Mail } from 'lucide-react';
 import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -32,20 +32,34 @@ const ContactSection = () => {
     }
   }, [state]);
 
+  const variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
     <section id="contact" className="py-20 lg:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedElement>
+        <motion.div 
+          variants={variants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}>
           <div className="text-center mb-12">
             <h2 className="font-headline text-3xl md:text-4xl font-bold">Get in Touch</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
               Have a project in mind? We'd love to hear from you.
             </p>
           </div>
-        </AnimatedElement>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <AnimatedElement>
+          <motion.div
+            variants={variants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <Card className="shadow-lg">
               <CardHeader>
                 <CardTitle>Contact Form</CardTitle>
@@ -73,30 +87,34 @@ const ContactSection = () => {
                 </form>
               </CardContent>
             </Card>
-          </AnimatedElement>
+          </motion.div>
 
-          <AnimatedElement delay={200}>
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h3 className="font-headline text-2xl font-semibold">Our Office</h3>
-                <div className="space-y-3 text-muted-foreground">
-                  <p className="flex items-center gap-3"><MapPin className="h-5 w-5 text-primary flex-shrink-0" />123 Tech Avenue, Silicon Valley, CA 94000</p>
-                  <p className="flex items-center gap-3"><Phone className="h-5 w-5 text-primary flex-shrink-0" />+1 (123) 456-7890</p>
-                  <p className="flex items-center gap-3"><Mail className="h-5 w-5 text-primary flex-shrink-0" />hello@devridge.com</p>
-                </div>
+          <motion.div 
+            variants={variants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3, delay: 0.2 }}
+            className="space-y-8"
+          >
+            <div className="space-y-4">
+              <h3 className="font-headline text-2xl font-semibold">Our Office</h3>
+              <div className="space-y-3 text-muted-foreground">
+                <p className="flex items-center gap-3"><MapPin className="h-5 w-5 text-primary flex-shrink-0" />123 Tech Avenue, Silicon Valley, CA 94000</p>
+                <p className="flex items-center gap-3"><Phone className="h-5 w-5 text-primary flex-shrink-0" />+1 (123) 456-7890</p>
+                <p className="flex items-center gap-3"><Mail className="h-5 w-5 text-primary flex-shrink-0" />hello@devridge.com</p>
               </div>
-              <Card className="overflow-hidden shadow-lg rounded-lg">
-                <Image
-                  src="https://placehold.co/600x400.png"
-                  alt="Office map"
-                  data-ai-hint="office map city"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover"
-                />
-              </Card>
             </div>
-          </AnimatedElement>
+            <Card className="overflow-hidden shadow-lg rounded-lg">
+              <Image
+                src="https://placehold.co/600x400.png"
+                alt="Office map"
+                data-ai-hint="office map city"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+              />
+            </Card>
+          </motion.div>
         </div>
       </div>
     </section>
