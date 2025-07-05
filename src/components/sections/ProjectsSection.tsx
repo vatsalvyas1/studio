@@ -40,16 +40,6 @@ const projects = [
 ];
 
 const ProjectsSection = () => {
-
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
   const headingVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
@@ -58,16 +48,16 @@ const ProjectsSection = () => {
   const projectCardVariants = {
     hidden: (direction: 'left' | 'right' | 'up') => ({
       opacity: 0,
-      x: direction === 'left' ? -80 : direction === 'right' ? 80 : 0,
-      y: direction === 'up' ? 80 : 0,
+      x: direction === 'left' ? -100 : direction === 'right' ? 100 : 0,
+      y: direction === 'up' ? 100 : 0,
     }),
     visible: {
       opacity: 1,
       x: 0,
       y: 0,
-      transition: { 
-        duration: 0.7,
-        ease: [0.6, 0.05, 0.01, 0.9]
+      transition: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1], // A smoother easing function
       },
     },
   };
@@ -90,18 +80,15 @@ const ProjectsSection = () => {
           </p>
         </motion.div>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <motion.div 
-              key={project.title} 
+            <motion.div
+              key={project.title}
               custom={index === 0 ? 'up' : index % 2 !== 0 ? 'right' : 'left'}
               variants={projectCardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
               whileHover={{ scale: 1.03, y: -5 }}
               transition={{ type: "spring", stiffness: 300 }}
               className={cn(index === 0 && 'md:col-span-2 lg:col-span-2')}
@@ -136,7 +123,7 @@ const ProjectsSection = () => {
               </Link>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
