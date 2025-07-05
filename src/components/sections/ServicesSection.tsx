@@ -50,6 +50,16 @@ const ServicesSection = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
+  const cardMotionVariants = {
+    rest: { y: 0 },
+    hover: { y: -8, transition: { duration: 0.2, ease: "easeOut" } }
+  };
+  
+  const glassShapeVariants = {
+    rest: { rotate: 0, scale: 1 },
+    hover: { rotate: 45, scale: 1.2 },
+  };
+
   return (
     <section id="services" ref={ref} className="py-20 lg:py-32 relative overflow-hidden">
        <motion.div 
@@ -82,23 +92,33 @@ const ServicesSection = () => {
             <motion.div 
               key={service.title} 
               variants={itemVariants}
-              whileHover={{ y: -8, scale: 1.02, rotate: 1, transition: { duration: 0.2 } }}
+              initial="rest"
+              whileHover="hover"
+              animate="rest"
+              className="h-full"
             >
-              <Card className="relative overflow-hidden text-left h-full bg-card/50 border-border/50 transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10">
-                <div aria-hidden="true" className="absolute inset-0 -z-10">
-                    <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-accent/5 opacity-50 blur-2xl animate-blob animation-delay-2000"></div>
-                    <div className="absolute right-10 top-20 h-20 w-40 rounded-full bg-primary/5 opacity-50 blur-2xl animate-blob2"></div>
-                </div>
-                <CardHeader className="z-10">
-                  <div className="mb-4">
-                    {service.icon}
+              <motion.div variants={cardMotionVariants} className="h-full">
+                <Card className="relative overflow-hidden text-left h-full bg-card/50 border-border/50 transition-all duration-300 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/10">
+                  <motion.div
+                    aria-hidden="true"
+                    className="absolute -top-10 -right-10 w-32 h-32 bg-accent/10 backdrop-blur-sm rounded-2xl border border-white/5 opacity-80"
+                    variants={glassShapeVariants}
+                    transition={{ duration: 0.5, ease: 'backOut' }}
+                  />
+                  
+                  <div className="relative z-10 h-full flex flex-col">
+                    <CardHeader>
+                      <div className="mb-4">
+                        {service.icon}
+                      </div>
+                      <CardTitle className="font-headline text-2xl">{service.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                      <p className="text-muted-foreground">{service.description}</p>
+                    </CardContent>
                   </div>
-                  <CardTitle className="font-headline text-2xl">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="z-10">
-                  <p className="text-muted-foreground">{service.description}</p>
-                </CardContent>
-              </Card>
+                </Card>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>

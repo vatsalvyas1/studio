@@ -68,19 +68,19 @@ const HeroSection = () => {
           <div className="relative w-full h-full">
             <motion.div 
               style={{ x: blob1X, y: blob1Y }}
-              className="absolute -inset-20 bg-accent/20 rounded-full blur-3xl opacity-40 animate-blob" 
+              className="absolute top-1/4 left-1/4 w-72 h-72 bg-accent/10 rounded-3xl opacity-50 backdrop-blur-md border border-white/10 animate-blob" 
             />
             <motion.div 
               style={{ x: blob2X, y: blob2Y }}
-              className="absolute top-10 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-40 animate-blob2 animation-delay-2000" 
+              className="absolute top-10 right-10 w-96 h-96 bg-primary/5 rounded-full opacity-50 backdrop-blur-lg border border-white/5 animate-blob2 animation-delay-2000" 
             />
             <motion.div 
               style={{ x: blob3X, y: blob3Y }}
-              className="absolute bottom-10 left-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl opacity-40 animate-blob3 animation-delay-4000" 
+              className="absolute bottom-10 left-10 w-80 h-80 bg-accent/5 rounded-3xl opacity-60 backdrop-blur-md border border-white/10 animate-blob3 animation-delay-4000" 
             />
             <motion.div 
               style={{ x: blob4X, y: blob4Y }}
-              className="absolute -bottom-20 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl opacity-40 animate-blob4" 
+              className="absolute -bottom-20 -right-20 w-96 h-96 bg-primary/10 rounded-full opacity-40 backdrop-blur-xl border border-white/5 animate-blob4" 
             />
           </div>
         </div>
