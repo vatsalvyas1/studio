@@ -159,7 +159,7 @@ const HeroSection = () => {
           initial="hidden"
           animate="visible"
           style={{ opacity: contentOpacity, filter: contentBlur }}
-          className="flex flex-col items-center"
+          className="flex flex-col items-center mt-20"
         >
           <motion.h1 
             variants={itemVariants}
@@ -189,7 +189,7 @@ const HeroSection = () => {
 
           <motion.div
             variants={itemVariants}
-            className="mt-16 w-full"
+            className="mt-24 w-full"
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-border">
               <AnimatedStat to={1357921} suffix="+" label="Businesses Online" />
