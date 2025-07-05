@@ -5,11 +5,10 @@ import Link from 'next/link';
 import { motion, useScroll, useTransform, useMotionValue, animate } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 
-const CubeIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M4 8L12 4L20 8L12 12L4 8Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M4 8V16L12 20L20 16V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M12 12V20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+const TrendingUpIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+        <polyline points="16 7 22 7 22 13" />
     </svg>
 );
 
@@ -135,7 +134,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-background grid-background animate-grid-pan" />
         <div aria-hidden="true" className="absolute inset-0 z-[1]">
             <motion.div style={{ x: shape1X, y: shape1Y }} className="absolute top-[20%] left-[15%] w-20 h-20 text-accent/50">
-                <CubeIcon className="w-full h-full animate-blob" />
+                <TrendingUpIcon className="w-full h-full animate-blob" />
             </motion.div>
             <motion.div style={{ x: shape2X, y: shape2Y }} className="absolute bottom-[25%] right-[10%] w-24 h-24 text-primary/30">
                 <ConcentricCirclesIcon className="w-full h-full animate-blob2 animation-delay-2000" />
