@@ -41,7 +41,6 @@ const TestimonialsSection = () => {
     target: ref,
     offset: ['start end', 'end start'],
   });
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['-20%', '20%']);
   const carouselY = useTransform(scrollYProgress, [0, 1], [100, 0]);
   const carouselOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
@@ -55,10 +54,6 @@ const TestimonialsSection = () => {
        <div aria-hidden="true" className="absolute -top-10 -left-10 w-24 h-24 bg-primary/10 rounded-full opacity-50 animate-blob3 -z-10" />
        <div aria-hidden="true" className="absolute -bottom-20 -right-10 w-32 h-32 bg-accent/10 rounded-full opacity-50 animate-blob4 animation-delay-2000 -z-10" />
        <div aria-hidden="true" className="absolute top-1/2 left-1/4 w-20 h-20 bg-accent/5 rounded-full opacity-50 animate-blob animation-delay-4000 -z-10" />
-       <motion.div 
-        className="absolute inset-0 bg-secondary/40 -z-10"
-        style={{ y: backgroundY }}
-      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={variants}
@@ -89,7 +84,7 @@ const TestimonialsSection = () => {
               {testimonials.map((item, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
-                    <Card className="h-full bg-card/50 border-border/50 transition-all duration-300 hover:shadow-xl hover:border-accent/50 hover:-translate-y-2">
+                    <Card className="h-full bg-card/80 border-border/50 transition-all duration-300 hover:shadow-xl hover:border-accent/50 hover:-translate-y-2 backdrop-blur-sm">
                       <CardContent className="flex flex-col items-start justify-start p-6 text-left h-full">
                         <blockquote className="text-base text-foreground mb-4 flex-grow">"{item.testimonial}"</blockquote>
                         <div className="flex items-center gap-4 mt-auto pt-4">

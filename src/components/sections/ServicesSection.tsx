@@ -47,11 +47,6 @@ const itemVariants = {
 
 const ServicesSection = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['-20%', '20%']);
   
   const headingVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -60,10 +55,6 @@ const ServicesSection = () => {
 
   return (
     <section id="services" ref={ref} className="py-20 lg:py-32 relative overflow-hidden">
-       <motion.div 
-        className="absolute inset-0 bg-secondary/40 -z-10"
-        style={{ y: backgroundY }}
-      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={headingVariants}
@@ -88,7 +79,7 @@ const ServicesSection = () => {
         >
           {services.map((service) => (
             <motion.div key={service.title} variants={itemVariants} className="h-full">
-              <Card className="relative overflow-hidden text-left h-full bg-card/50 border-border/50 transition-all duration-300 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/10 hover:-translate-y-2">
+              <Card className="relative overflow-hidden text-left h-full bg-card/80 border-border/50 transition-all duration-300 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/10 hover:-translate-y-2 backdrop-blur-sm">
                 <div className="relative z-10 h-full flex flex-col">
                   <CardHeader>
                     <div className="mb-4">
