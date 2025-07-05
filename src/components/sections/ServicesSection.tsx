@@ -2,7 +2,8 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Code, PenTool, Server, ShieldCheck } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 const services = [
   {
@@ -28,6 +29,13 @@ const services = [
 ];
 
 const ServicesSection = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['-20%', '20%']);
+  
   const containerVariants = {
     hidden: {},
     visible: {
@@ -38,12 +46,16 @@ const ServicesSection = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   return (
-    <section id="services" className="py-20 lg:py-32 bg-secondary/40">
+    <section id="services" ref={ref} className="py-20 lg:py-32 relative overflow-hidden">
+       <motion.div 
+        className="absolute inset-0 bg-secondary/40 -z-10"
+        style={{ y: backgroundY }}
+      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={itemVariants}

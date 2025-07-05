@@ -4,7 +4,7 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Autoplay from 'embla-carousel-autoplay';
 
 const testimonials = [
@@ -36,13 +36,24 @@ const TestimonialsSection = () => {
     Autoplay({ delay: 4000, stopOnInteraction: true, stopOnMouseEnter: true })
   );
 
+  const ref = React.useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['-20%', '20%']);
+
   const variants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   return (
-    <section id="testimonials" className="py-20 lg:py-32 bg-secondary/40">
+    <section id="testimonials" ref={ref} className="py-20 lg:py-32 relative overflow-hidden">
+       <motion.div 
+        className="absolute inset-0 bg-secondary/40 -z-10"
+        style={{ y: backgroundY }}
+      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={variants}
