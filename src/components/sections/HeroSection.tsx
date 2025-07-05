@@ -2,8 +2,8 @@
 
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { motion, useScroll, useTransform, useMotionValue } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useScroll, useTransform, useMotionValue, animate } from 'framer-motion';
+import { useRef, useEffect } from 'react';
 
 const CubeIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -40,6 +40,35 @@ const HexagonIcon = (props: React.SVGProps<SVGSVGElement>) => (
         <path d="M21 8.5V15.5L12 20.5L3 15.5V8.5L12 3.5L21 8.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
 );
+
+type AnimatedStatProps = {
+  to: number;
+  label: string;
+  suffix?: string;
+  isFloat?: boolean;
+};
+
+const AnimatedStat = ({ to, label, suffix = "", isFloat = false }: AnimatedStatProps) => {
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => {
+    return isFloat ? latest.toFixed(1) : Math.round(latest).toLocaleString();
+  });
+
+  useEffect(() => {
+    const animation = animate(count, to, { duration: 2.5, ease: "easeOut" });
+    return animation.stop;
+  }, [to, count]);
+
+  return (
+    <div>
+      <h3 className="font-headline text-4xl md:text-5xl font-bold text-accent">
+        <motion.span>{rounded}</motion.span>{suffix}
+      </h3>
+      <p className="mt-2 text-muted-foreground">{label}</p>
+    </div>
+  );
+};
+
 
 const HeroSection = () => {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -96,7 +125,7 @@ const HeroSection = () => {
     <section 
       id="home" 
       ref={targetRef} 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden py-32"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
       onMouseMove={handleMouseMove}
     >
       <motion.div 
@@ -130,6 +159,7 @@ const HeroSection = () => {
           initial="hidden"
           animate="visible"
           style={{ opacity: contentOpacity, filter: contentBlur }}
+          className="flex flex-col items-center"
         >
           <motion.h1 
             variants={itemVariants}
@@ -155,6 +185,17 @@ const HeroSection = () => {
             <Button size="lg" variant="outline" asChild>
               <Link href="#contact">Get a Quote</Link>
             </Button>
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className="mt-24 w-full"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-border">
+              <AnimatedStat to={1.5} suffix="M+" isFloat={true} label="Businesses Online" />
+              <AnimatedStat to={200} suffix="+" label="Happy Clients" />
+              <AnimatedStat to={300} suffix="%+" label="Revenue Growth" />
+            </div>
           </motion.div>
         </motion.div>
       </div>
