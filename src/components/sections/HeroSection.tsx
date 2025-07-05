@@ -27,9 +27,6 @@ const HeroSection = () => {
     }
   };
 
-  const textX = useTransform(mouseX, value => value * 30);
-  const textY = useTransform(mouseY, value => value * 20);
-
   const blob1X = useTransform(mouseX, value => value * -50);
   const blob1Y = useTransform(mouseY, value => value * -40);
   const blob2X = useTransform(mouseX, value => value * 80);
@@ -90,7 +87,7 @@ const HeroSection = () => {
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10"></div>
       
-      <motion.div style={{ x: textX, y: textY }} className="container mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -122,7 +119,7 @@ const HeroSection = () => {
             </Button>
           </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };
