@@ -89,6 +89,39 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
   );
 };
 
+const ViewMoreCard = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "center center"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [100, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
+
+  return (
+      <motion.div
+          ref={ref}
+          style={{ y, opacity, scale }}
+          className="h-full"
+      >
+          <Link href="/projects" className="h-full flex">
+              <Card className="group relative flex flex-col items-center justify-center overflow-hidden rounded-xl border-border/50 transition-all duration-300 h-full w-full shadow-sm hover:shadow-xl hover:shadow-accent/10 min-h-[300px] bg-secondary/40 hover:border-accent/50">
+                  <div className="text-center p-6">
+                      <h3 className="font-headline text-2xl font-bold">View More Projects</h3>
+                      <p className="text-muted-foreground mt-2">Explore our full portfolio</p>
+                      <div className="mt-4 flex items-center justify-center text-accent font-semibold text-sm">
+                          <span>Explore All</span>
+                          <ArrowRight className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                      </div>
+                  </div>
+              </Card>
+          </Link>
+      </motion.div>
+  )
+}
+
 
 const ProjectsSection = () => {
   const headingVariants = {
@@ -118,6 +151,7 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}
+          <ViewMoreCard />
         </div>
       </div>
     </section>
