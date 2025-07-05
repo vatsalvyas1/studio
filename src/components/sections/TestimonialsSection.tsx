@@ -42,6 +42,8 @@ const TestimonialsSection = () => {
     offset: ['start end', 'end start'],
   });
   const backgroundY = useTransform(scrollYProgress, [0, 1], ['-20%', '20%']);
+  const carouselY = useTransform(scrollYProgress, [0, 1], [100, 0]);
+  const carouselOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   const variants = {
     hidden: { opacity: 0, y: 50 },
@@ -52,6 +54,7 @@ const TestimonialsSection = () => {
     <section id="testimonials" ref={ref} className="py-20 lg:py-32 relative overflow-hidden">
        <div aria-hidden="true" className="absolute -top-10 -left-10 w-24 h-24 bg-primary/10 rounded-full opacity-50 animate-blob3 -z-10" />
        <div aria-hidden="true" className="absolute -bottom-20 -right-10 w-32 h-32 bg-accent/10 rounded-full opacity-50 animate-blob4 animation-delay-2000 -z-10" />
+       <div aria-hidden="true" className="absolute top-1/2 left-1/4 w-20 h-20 bg-accent/5 rounded-full opacity-50 animate-blob animation-delay-4000 -z-10" />
        <motion.div 
         className="absolute inset-0 bg-secondary/40 -z-10"
         style={{ y: backgroundY }}
@@ -72,10 +75,7 @@ const TestimonialsSection = () => {
         </motion.div>
 
         <motion.div
-          variants={variants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          style={{ y: carouselY, opacity: carouselOpacity }}
         >
           <Carousel
             plugins={[plugin.current]}

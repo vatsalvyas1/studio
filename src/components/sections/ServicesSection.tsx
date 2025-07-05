@@ -28,6 +28,39 @@ const services = [
   },
 ];
 
+const ServiceCard = ({ service, index }: { service: typeof services[0], index: number }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], [index % 2 === 0 ? -100 : 100, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ x, opacity }}
+      className="h-full"
+    >
+      <Card className="relative overflow-hidden text-left h-full bg-card/50 border-border/50 transition-all duration-300 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/10 hover:-translate-y-2">
+        <div className="relative z-10 h-full flex flex-col">
+          <CardHeader>
+            <div className="mb-4">
+              {service.icon}
+            </div>
+            <CardTitle className="font-headline text-2xl">{service.title}</CardTitle>
+          </CardHeader>
+          <CardContent className="flex-grow">
+            <p className="text-muted-foreground">{service.description}</p>
+          </CardContent>
+        </div>
+      </Card>
+    </motion.div>
+  );
+};
+
 const ServicesSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -36,23 +69,9 @@ const ServicesSection = () => {
   });
   const backgroundY = useTransform(scrollYProgress, [0, 1], ['-20%', '20%']);
   
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants = {
+  const headingVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  const cardMotionVariants = {
-    rest: { y: 0 },
-    hover: { y: -8, transition: { duration: 0.2, ease: "easeOut" } }
   };
 
   return (
@@ -63,7 +82,7 @@ const ServicesSection = () => {
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          variants={itemVariants}
+          variants={headingVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
@@ -76,40 +95,11 @@ const ServicesSection = () => {
           </div>
         </motion.div>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {services.map((service) => (
-            <motion.div 
-              key={service.title} 
-              variants={itemVariants}
-              initial="rest"
-              whileHover="hover"
-              animate="rest"
-              className="h-full"
-            >
-              <motion.div variants={cardMotionVariants} className="h-full">
-                <Card className="relative overflow-hidden text-left h-full bg-card/50 border-border/50 transition-all duration-300 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/10">
-                  <div className="relative z-10 h-full flex flex-col">
-                    <CardHeader>
-                      <div className="mb-4">
-                        {service.icon}
-                      </div>
-                      <CardTitle className="font-headline text-2xl">{service.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                      <p className="text-muted-foreground">{service.description}</p>
-                    </CardContent>
-                  </div>
-                </Card>
-              </motion.div>
-            </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {services.map((service, index) => (
+            <ServiceCard key={service.title} service={service} index={index} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

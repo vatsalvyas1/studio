@@ -61,16 +61,34 @@ const CtaSection = () => {
     }
   }, [state, toast, form]);
 
-  const itemVariants = {
+  const headingVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
+  const formContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const formItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <section id="contact" className="py-20 lg:py-32">
+    <section id="contact" className="py-20 lg:py-32 relative overflow-hidden">
+      <div aria-hidden="true" className="absolute bottom-0 -left-10 w-24 h-24 bg-primary/5 rounded-full opacity-50 animate-blob animation-delay-2000 -z-10" />
+      <div aria-hidden="true" className="absolute top-0 -right-10 w-32 h-32 bg-accent/5 rounded-full opacity-50 animate-blob3 animation-delay-4000 -z-10" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          variants={itemVariants}
+          variants={headingVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
@@ -82,16 +100,14 @@ const CtaSection = () => {
           </p>
         </motion.div>
 
-        <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="max-w-2xl mx-auto"
-        >
+        <div className="max-w-2xl mx-auto">
           <Form {...form}>
-            <form
+            <motion.form
               ref={formRef}
+              variants={formContainerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
               onSubmit={(evt) => {
                 evt.preventDefault();
                 form.handleSubmit(() => {
@@ -100,54 +116,60 @@ const CtaSection = () => {
               }}
               className="space-y-6"
             >
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Full Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="John Doe" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email Address</FormLabel>
-                    <FormControl>
-                      <Input type="email" placeholder="you@example.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Your Message</FormLabel>
-                    <FormControl>
-                      <Textarea placeholder="Tell us about your project..." className="min-h-[150px]" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <div className="text-center pt-4">
+              <motion.div variants={formItemVariants}>
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Full Name</FormLabel>
+                      <FormControl>
+                        <Input placeholder="John Doe" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </motion.div>
+              <motion.div variants={formItemVariants}>
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email Address</FormLabel>
+                      <FormControl>
+                        <Input type="email" placeholder="you@example.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </motion.div>
+              <motion.div variants={formItemVariants}>
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Your Message</FormLabel>
+                      <FormControl>
+                        <Textarea placeholder="Tell us about your project..." className="min-h-[150px]" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </motion.div>
+              <motion.div variants={formItemVariants} className="text-center pt-4">
                 <Button type="submit" size="lg" disabled={isPending} className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/20">
                   {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   Send Message
                 </Button>
-              </div>
-            </form>
+              </motion.div>
+            </motion.form>
           </Form>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
