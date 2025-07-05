@@ -5,28 +5,36 @@ import Link from 'next/link';
 import { motion, useScroll, useTransform, useMotionValue } from 'framer-motion';
 import { useRef } from 'react';
 
-const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const CubeIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M12 2L14.09 8.26L20 9.27L15.55 13.97L16.91 20L12 17.27L7.09 20L8.45 13.97L4 9.27L9.91 8.26L12 2Z" fill="currentColor"/>
+        <path d="M4 8L12 4L20 8L12 12L4 8Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M4 8V16L12 20L20 16V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 12V20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
 );
 
-const CircleIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="8" fill="none" />
+const ConcentricCirclesIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="3" />
+      <circle cx="50" cy="50" r="25" stroke="currentColor" strokeWidth="3" />
     </svg>
 );
   
-const PlusIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const TriangleIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M12 5V19" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M5 12H19" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 3L2 21H22L12 3Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
 );
 
-const SquiggleIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const WaveIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg viewBox="0 0 83 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M2.5 16.5C12.5 -5 39.5 2.5 52 7C64.5 11.5 79.5 15 80.5 15.5" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+        <path d="M2 10C12 2, 22 18, 32 10C42 2, 52 18, 62 10C72 2, 82 18, 82 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+);
+
+const HexagonIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M21 8.5V15.5L12 20.5L3 15.5V8.5L12 3.5L21 8.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
 );
 
@@ -95,19 +103,19 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-background grid-background animate-grid-pan" />
         <div aria-hidden="true" className="absolute inset-0 z-[1]">
             <motion.div style={{ x: shape1X, y: shape1Y }} className="absolute top-[20%] left-[15%] w-20 h-20 text-accent/50">
-                <StarIcon className="w-full h-full animate-blob" />
+                <CubeIcon className="w-full h-full animate-blob" />
             </motion.div>
             <motion.div style={{ x: shape2X, y: shape2Y }} className="absolute bottom-[25%] right-[10%] w-24 h-24 text-primary/30">
-                <CircleIcon className="w-full h-full animate-blob2 animation-delay-2000" />
+                <ConcentricCirclesIcon className="w-full h-full animate-blob2 animation-delay-2000" />
             </motion.div>
             <motion.div style={{ x: shape3X, y: shape3Y }} className="absolute bottom-[50%] right-[45%] w-16 h-16 text-accent/40">
-                <PlusIcon className="w-full h-full animate-blob3 animation-delay-4000" />
+                <TriangleIcon className="w-full h-full animate-blob3 animation-delay-4000" />
             </motion.div>
             <motion.div style={{ x: shape4X, y: shape4Y }} className="absolute bottom-[15%] left-[20%] w-32 h-16 text-primary/20">
-                <SquiggleIcon className="w-full h-full animate-blob animation-delay-2000" />
+                <WaveIcon className="w-full h-full animate-blob animation-delay-2000" />
             </motion.div>
             <motion.div style={{ x: shape5X, y: shape5Y }} className="absolute top-[30%] right-[25%] w-12 h-12 text-accent/30">
-                <StarIcon className="w-full h-full animate-blob2 animation-delay-4000 rotate-45" />
+                <HexagonIcon className="w-full h-full animate-blob2 animation-delay-4000 rotate-45" />
             </motion.div>
         </div>
       </motion.div>
