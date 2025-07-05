@@ -192,7 +192,7 @@ const HeroSection = () => {
             className="mt-24 w-full"
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-border">
-              <AnimatedStat to={1.5} suffix="M+" isFloat={true} label="Businesses Online" />
+              <AnimatedStat to={1500000} suffix="+" label="Businesses Online" />
               <AnimatedStat to={200} suffix="+" label="Happy Clients" />
               <AnimatedStat to={300} suffix="%+" label="Revenue Growth" />
             </div>
