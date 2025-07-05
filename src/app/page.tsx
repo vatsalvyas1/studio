@@ -1,5 +1,6 @@
 import Header from '@/components/layout/Header';
 import HeroSection from '@/components/sections/HeroSection';
+import StatsSection from '@/components/sections/StatsSection';
 import ClientsSection from '@/components/sections/ClientsSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <HeroSection />
+        <StatsSection />
         <ClientsSection />
         <ServicesSection />
         <AnimatedSeparator />
