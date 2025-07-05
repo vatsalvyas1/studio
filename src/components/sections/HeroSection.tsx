@@ -26,9 +26,12 @@ const TriangleIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
-const WaveIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 83 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M2 10C12 2, 22 18, 32 10C42 2, 52 18, 62 10C72 2, 82 18, 82 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+const RocketIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M15.5834 8.41663L18.4118 5.58819" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M11.25 12.75L12.75 11.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M8.41663 15.5834L5.58819 18.4118" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12.0001 2.08337C12.0001 2.08337 6.25008 6.25004 2.08341 12.0001C-2.08325 17.7501 6.25008 22.0834 12.0001 17.9167C17.7501 13.75 21.9167 7.91671 12.0001 2.08337Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
 );
 
@@ -111,8 +114,8 @@ const HeroSection = () => {
             <motion.div style={{ x: shape3X, y: shape3Y }} className="absolute bottom-[50%] right-[45%] w-16 h-16 text-accent/40">
                 <TriangleIcon className="w-full h-full animate-blob3 animation-delay-4000" />
             </motion.div>
-            <motion.div style={{ x: shape4X, y: shape4Y }} className="absolute bottom-[15%] left-[20%] w-32 h-16 text-primary/20">
-                <WaveIcon className="w-full h-full animate-blob animation-delay-2000" />
+            <motion.div style={{ x: shape4X, y: shape4Y }} className="absolute bottom-[15%] left-[20%] w-20 h-20 text-accent/40 transform -rotate-45">
+                <RocketIcon className="w-full h-full animate-blob animation-delay-2000" />
             </motion.div>
             <motion.div style={{ x: shape5X, y: shape5Y }} className="absolute top-[30%] right-[25%] w-12 h-12 text-accent/30">
                 <HexagonIcon className="w-full h-full animate-blob2 animation-delay-4000 rotate-45" />
