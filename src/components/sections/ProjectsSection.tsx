@@ -127,7 +127,7 @@ const ProjectsSection = () => {
                     <div className="mt-4 transition-all duration-300 max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100">
                       <p className="text-white/80 mb-4 text-sm">{project.description}</p>
                       <div className="flex items-center text-accent font-semibold text-sm">
-                        <span>View Case Study</span>
+                        <span>View Work</span>
                         <ArrowRight className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                       </div>
                     </div>
