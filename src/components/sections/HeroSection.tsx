@@ -5,6 +5,31 @@ import Link from 'next/link';
 import { motion, useScroll, useTransform, useMotionValue } from 'framer-motion';
 import { useRef } from 'react';
 
+const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path d="M12 2L14.09 8.26L20 9.27L15.55 13.97L16.91 20L12 17.27L7.09 20L8.45 13.97L4 9.27L9.91 8.26L12 2Z" fill="currentColor"/>
+    </svg>
+);
+
+const CircleIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="8" fill="none" />
+    </svg>
+);
+  
+const PlusIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path d="M12 5V19" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M5 12H19" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+);
+
+const SquiggleIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 83 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M2.5 16.5C12.5 -5 39.5 2.5 52 7C64.5 11.5 79.5 15 80.5 15.5" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+    </svg>
+);
+
 const HeroSection = () => {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -13,6 +38,8 @@ const HeroSection = () => {
   });
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const contentBlur = useTransform(scrollYProgress, [0, 0.6], ['blur(0px)', 'blur(8px)']);
   
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -33,6 +60,10 @@ const HeroSection = () => {
   const shape2Y = useTransform(mouseY, value => value * 60);
   const shape3X = useTransform(mouseX, value => value * -30);
   const shape3Y = useTransform(mouseY, value => value * 70);
+  const shape4X = useTransform(mouseX, value => value * 40);
+  const shape4Y = useTransform(mouseY, value => value * -50);
+  const shape5X = useTransform(mouseX, value => value * -70);
+  const shape5Y = useTransform(mouseY, value => value * 20);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -62,19 +93,22 @@ const HeroSection = () => {
         className="absolute inset-0 z-0"
       >
         <div className="absolute inset-0 bg-background grid-background animate-grid-pan" />
-        <div aria-hidden="true" className="absolute inset-0 z-[1] flex items-center justify-center">
-          <motion.div
-              style={{ x: shape1X, y: shape1Y }}
-              className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-accent/20 via-accent/10 to-transparent rounded-full opacity-60 filter blur-2xl animate-blob"
-          />
-          <motion.div
-              style={{ x: shape2X, y: shape2Y }}
-              className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-tl from-primary/10 via-primary/5 to-transparent rounded-full opacity-50 filter blur-3xl animate-blob2 animation-delay-2000"
-          />
-          <motion.div
-              style={{ x: shape3X, y: shape3Y }}
-              className="absolute bottom-1/2 right-1/2 w-72 h-72 bg-gradient-to-tr from-accent/10 to-transparent rounded-2xl opacity-40 filter blur-xl animate-blob3 animation-delay-4000"
-          />
+        <div aria-hidden="true" className="absolute inset-0 z-[1]">
+            <motion.div style={{ x: shape1X, y: shape1Y }} className="absolute top-[20%] left-[15%] w-20 h-20 text-accent/50">
+                <StarIcon className="w-full h-full animate-blob" />
+            </motion.div>
+            <motion.div style={{ x: shape2X, y: shape2Y }} className="absolute bottom-[25%] right-[10%] w-24 h-24 text-primary/30">
+                <CircleIcon className="w-full h-full animate-blob2 animation-delay-2000" />
+            </motion.div>
+            <motion.div style={{ x: shape3X, y: shape3Y }} className="absolute bottom-[50%] right-[45%] w-16 h-16 text-accent/40">
+                <PlusIcon className="w-full h-full animate-blob3 animation-delay-4000" />
+            </motion.div>
+            <motion.div style={{ x: shape4X, y: shape4Y }} className="absolute bottom-[15%] left-[20%] w-32 h-16 text-primary/20">
+                <SquiggleIcon className="w-full h-full animate-blob animation-delay-2000" />
+            </motion.div>
+            <motion.div style={{ x: shape5X, y: shape5Y }} className="absolute top-[30%] right-[25%] w-12 h-12 text-accent/30">
+                <StarIcon className="w-full h-full animate-blob2 animation-delay-4000 rotate-45" />
+            </motion.div>
         </div>
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10"></div>
@@ -84,6 +118,7 @@ const HeroSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
+          style={{ opacity: contentOpacity, filter: contentBlur }}
         >
           <motion.h1 
             variants={itemVariants}
