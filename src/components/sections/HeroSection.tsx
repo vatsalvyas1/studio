@@ -13,6 +13,7 @@ const HeroSection = () => {
   });
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -38,15 +39,16 @@ const HeroSection = () => {
           <div className="absolute inset-0 bg-background grid-background" />
           <div aria-hidden="true" className="absolute inset-0 z-[1] flex items-center justify-center">
             <div className="relative">
-              <div className="absolute -inset-20 bg-accent/30 rounded-full blur-3xl opacity-20 animate-blob" />
-              <div className="absolute -inset-10 top-10 bg-primary/30 rounded-full blur-3xl opacity-20 animate-blob animation-delay-2000" />
-              <div className="absolute -inset-10 left-10 bg-secondary/30 rounded-full blur-3xl opacity-20 animate-blob animation-delay-4000" />
+              <div className="absolute -inset-20 bg-accent/20 rounded-full blur-3xl opacity-40 animate-blob" />
+              <div className="absolute top-10 right-10 w-72 h-72 bg-fuchsia-500/20 rounded-full blur-3xl opacity-40 animate-blob2 animation-delay-2000" />
+              <div className="absolute bottom-10 left-10 w-60 h-60 bg-cyan-500/20 rounded-full blur-3xl opacity-40 animate-blob3 animation-delay-4000" />
+              <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl opacity-40 animate-blob4" />
             </div>
           </div>
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10"></div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
+      <motion.div style={{ y: contentY }} className="container mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -78,7 +80,7 @@ const HeroSection = () => {
             </Button>
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

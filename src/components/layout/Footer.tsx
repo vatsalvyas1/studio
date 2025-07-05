@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Moon } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2 md:col-span-1 flex flex-col items-start space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Moon className="h-6 w-6 text-accent" />
+              <Sparkles className="h-6 w-6 text-accent" />
               <span className="font-headline text-xl font-bold">3AM Devs</span>
             </Link>
             <p className="text-sm text-muted-foreground">Crafting digital excellence.</p>

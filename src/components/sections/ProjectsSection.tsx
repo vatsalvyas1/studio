@@ -85,7 +85,7 @@ const ProjectsSection = () => {
               className={cn(index === 0 && 'md:col-span-2 lg:col-span-2')}
             >
               <Link href="#">
-                <Card className="group relative overflow-hidden rounded-xl border-border/50 transition-all duration-300 h-full shadow-sm hover:shadow-xl hover:shadow-accent/10">
+                <Card className="group relative overflow-hidden rounded-xl border-border/50 transition-all duration-300 h-full shadow-sm hover:shadow-xl hover:shadow-accent/10 hover:-rotate-1">
                   <Image
                     src={project.image}
                     alt={project.title}

@@ -70,7 +70,7 @@ const ServicesSection = () => {
             <motion.div 
               key={service.title} 
               variants={itemVariants}
-              whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
+              whileHover={{ y: -8, scale: 1.02, rotate: 1, transition: { duration: 0.2 } }}
             >
               <Card className="relative overflow-hidden text-left h-full bg-card/50 border-border/50 transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10">
                 <div aria-hidden="true" className="absolute inset-0 -z-10">
