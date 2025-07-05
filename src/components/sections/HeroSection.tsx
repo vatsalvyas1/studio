@@ -22,13 +22,12 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden py-32">
       <div className="absolute inset-0 bg-background z-0 grid-background">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-transparent to-accent/10 opacity-50"></div>
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/5 rounded-full animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent/5 rounded-full animate-blob animation-delay-4000"></div>
       </div>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10"></div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -36,26 +35,27 @@ const HeroSection = () => {
         >
           <motion.h1 
             variants={itemVariants}
-            className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4"
+            className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6"
           >
-            We Build Premium <br />
-            <span className="text-primary">Digital Experiences</span>
+            The AI Notebook That Turns 
+            <br />
+            Thoughts Into <span className="text-accent">Action</span>
           </motion.h1>
           <motion.p 
             variants={itemVariants}
-            className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground mb-8"
+            className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground mb-10"
           >
-            DevRidge is a creative agency that crafts stunning, high-performance websites to elevate your brand.
+            Capture your ideas, find connections, and let AI help you create, plan, and build. All in one place.
           </motion.p>
           <motion.div 
             variants={itemVariants}
             className="flex flex-col sm:flex-row justify-center gap-4"
           >
-            <Button size="lg" asChild>
-              <Link href="#portfolio">Our Work</Link>
+            <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/20">
+              <Link href="#">Get Started - It's Free</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="#contact">Contact Us</Link>
+              <Link href="#how-it-works">See it in action</Link>
             </Button>
           </motion.div>
         </motion.div>

@@ -1,33 +1,33 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Paintbrush, Code, Database, ShieldCheck } from 'lucide-react';
+import { Sparkles, Search, Zap, Network } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const services = [
+const features = [
   {
-    icon: <Paintbrush className="h-10 w-10 text-primary" />,
-    title: 'Web Design',
-    description: 'Creating beautiful, intuitive, and user-friendly interfaces that captivate your audience.',
+    icon: <Sparkles className="h-8 w-8 text-accent" />,
+    title: 'Capture everything, effortlessly.',
+    description: 'Transcribe voice notes, save web pages, and write down your ideas. All in one place.',
   },
   {
-    icon: <Code className="h-10 w-10 text-primary" />,
-    title: 'Development',
-    description: 'Building robust and scalable websites with the latest technologies for optimal performance.',
+    icon: <Search className="h-8 w-8 text-accent" />,
+    title: 'Find anything, instantly.',
+    description: 'Our AI-powered search understands natural language. Find what you need without remembering how you filed it.',
   },
   {
-    icon: <Database className="h-10 w-10 text-primary" />,
-    title: 'Hosting Solutions',
-    description: 'Reliable, secure, and high-speed hosting to ensure your website is always available.',
+    icon: <Zap className="h-8 w-8 text-accent" />,
+    title: 'Automate your workflows.',
+    description: "Let AI summarize, create action items, and connect related thoughts automatically.",
   },
   {
-    icon: <ShieldCheck className="h-10 w-10 text-primary" />,
-    title: 'Maintenance',
-    description: 'Ongoing support and updates to keep your website secure and running smoothly.',
+    icon: <Network className="h-8 w-8 text-accent" />,
+    title: 'Structure thoughts your way.',
+    description: 'Use tags, nested notes, and backlinks to create a knowledge base that works for you.',
   },
 ];
 
-const ServicesSection = () => {
+const FeaturesSection = () => {
   const containerVariants = {
     hidden: {},
     visible: {
@@ -43,7 +43,7 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-20 lg:py-32">
+    <section id="features" className="py-20 lg:py-32 bg-secondary/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={itemVariants}
@@ -51,36 +51,34 @@ const ServicesSection = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
         >
-          <div className="text-center mb-12">
-            <h2 className="font-headline text-3xl md:text-4xl font-bold">Our Services</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              We offer a complete suite of services to bring your digital vision to life.
+          <div className="text-center mb-16">
+            <h2 className="font-headline text-3xl md:text-5xl font-bold">A second brain, built for the new wave of AI.</h2>
+            <p className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground">
+              OpenNote is more than just a notebook. It's an intelligent partner that helps you think better.
             </p>
           </div>
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
-          {services.map((service) => (
-            <motion.div key={service.title} variants={itemVariants}>
-              <Card className="text-center h-full transition-shadow duration-300 hover:shadow-xl hover:bg-accent/5">
+          {features.map((feature) => (
+            <motion.div key={feature.title} variants={itemVariants}>
+              <Card className="text-left h-full bg-card/50 border-border/50 transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10">
                 <CardHeader>
-                  <motion.div 
-                    className="mx-auto mb-4"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ type: "spring", stiffness: 300 }}
+                  <div 
+                    className="mb-4"
                   >
-                    {service.icon}
-                  </motion.div>
-                  <CardTitle className="font-headline text-xl">{service.title}</CardTitle>
+                    {feature.icon}
+                  </div>
+                  <CardTitle className="font-headline text-2xl">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{service.description}</p>
+                  <p className="text-muted-foreground">{feature.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -91,4 +89,4 @@ const ServicesSection = () => {
   );
 };
 
-export default ServicesSection;
+export default FeaturesSection;

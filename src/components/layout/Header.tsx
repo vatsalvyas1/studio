@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Mountain } from 'lucide-react';
+import { NotebookText } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Header = () => {
@@ -25,24 +25,26 @@ const Header = () => {
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled ? 'bg-background/80 backdrop-blur-sm shadow-md' : 'bg-transparent'
+        scrolled ? 'bg-background/80 backdrop-blur-sm border-b border-border' : 'bg-transparent'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={cn('flex items-center justify-between transition-all duration-300', scrolled ? 'h-16' : 'h-24')}>
+        <div className={cn('flex items-center justify-between transition-all duration-300 h-20')}>
           <Link href="/" className="flex items-center gap-2">
-            <Mountain className="h-6 w-6 text-primary" />
-            <span className="font-headline text-xl font-bold text-foreground">DevRidge</span>
+            <NotebookText className="h-6 w-6 text-accent" />
+            <span className="font-headline text-xl font-bold text-foreground">OpenNote</span>
           </Link>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="#about" className="text-sm font-medium hover:text-primary transition-colors">About</Link>
-            <Link href="#services" className="text-sm font-medium hover:text-primary transition-colors">Services</Link>
-            <Link href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors">Portfolio</Link>
-            <Link href="#contact" className="text-sm font-medium hover:text-primary transition-colors">Contact</Link>
+          <nav className="hidden md:flex items-center gap-8">
+            <Link href="#features" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Features</Link>
+            <Link href="#testimonials" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Testimonials</Link>
+            <Link href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Pricing</Link>
           </nav>
-          <Button asChild>
-            <Link href="#contact">Get a Quote</Link>
-          </Button>
+          <div className="flex items-center gap-4">
+             <Link href="#" className="hidden sm:block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Sign In</Link>
+            <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
+              <Link href="#">Get Started</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </motion.header>

@@ -7,22 +7,22 @@ import { motion } from 'framer-motion';
 
 const testimonials = [
   {
-    name: 'Jane Doe',
-    title: 'CEO, TechCorp',
+    name: 'Sarah L.',
+    title: 'Product Manager, Stripe',
     avatar: 'https://placehold.co/100x100.png',
-    testimonial: 'DevRidge delivered a stunning website that exceeded our expectations. Their attention to detail and commitment to quality is unparalleled. We saw a 50% increase in user engagement after the launch.',
+    testimonial: 'OpenNote has become my second brain. The AI summarization is a game-changer for my meeting notes, and I can find anything in seconds.',
   },
   {
-    name: 'John Smith',
-    title: 'Founder, Innovate Startups',
+    name: 'Mikael D.',
+    title: 'Designer, Framer',
     avatar: 'https://placehold.co/100x100.png',
-    testimonial: 'The team at DevRidge is incredibly talented and professional. They transformed our vision into a digital masterpiece. Highly recommended for anyone looking for top-tier web development.',
+    testimonial: "I'm a visual thinker, and OpenNote lets me organize my thoughts with notes, images, and links seamlessly. It's beautifully designed and incredibly powerful.",
   },
   {
-    name: 'Emily White',
-    title: 'Marketing Director, Creative Co.',
+    name: 'Alex C.',
+    title: 'PhD Student, MIT',
     avatar: 'https://placehold.co/100x100.png',
-    testimonial: 'Working with DevRidge was a breeze. They were communicative, responsive, and delivered on time and on budget. Our new site is fast, beautiful, and drives conversions.',
+    testimonial: "As a researcher, I'm drowning in papers and notes. OpenNote's AI helps me connect ideas I would have otherwise missed. It's indispensable.",
   },
 ];
 
@@ -33,7 +33,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 lg:py-32">
+    <section id="testimonials" className="py-20 lg:py-32 bg-secondary/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={variants}
@@ -42,9 +42,9 @@ const TestimonialsSection = () => {
           viewport={{ once: true, amount: 0.5 }}
         >
           <div className="text-center mb-12">
-            <h2 className="font-headline text-3xl md:text-4xl font-bold">What Our Clients Say</h2>
+            <h2 className="font-headline text-3xl md:text-5xl font-bold">Loved by the world's most productive people</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              We are proud to have earned the trust of our amazing clients.
+              Don't just take our word for it. Here's what our users have to say.
             </p>
           </div>
         </motion.div>
@@ -53,28 +53,32 @@ const TestimonialsSection = () => {
           variants={variants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <Carousel
             opts={{
               align: 'start',
               loop: true,
             }}
-            className="w-full max-w-4xl mx-auto"
+            className="w-full max-w-6xl mx-auto"
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-4">
               {testimonials.map((item, index) => (
-                <CarouselItem key={index}>
+                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
-                    <Card className="border-0 shadow-none">
-                      <CardContent className="flex flex-col items-center justify-center p-8 text-center">
-                        <Avatar className="w-20 h-20 mb-4">
-                          <AvatarImage src={item.avatar} alt={item.name} />
-                          <AvatarFallback>{item.name.charAt(0)}</AvatarFallback>
-                        </Avatar>
-                        <blockquote className="text-lg italic text-foreground mb-4">"{item.testimonial}"</blockquote>
-                        <p className="font-bold font-headline">{item.name}</p>
-                        <p className="text-sm text-muted-foreground">{item.title}</p>
+                    <Card className="h-full bg-card/50 border-border/50">
+                      <CardContent className="flex flex-col items-start justify-start p-6 text-left h-full">
+                        <blockquote className="text-base text-foreground mb-4 flex-grow">"{item.testimonial}"</blockquote>
+                        <div className="flex items-center gap-4 mt-auto pt-4">
+                           <Avatar className="w-10 h-10">
+                              <AvatarImage src={item.avatar} alt={item.name} />
+                              <AvatarFallback>{item.name.charAt(0)}</AvatarFallback>
+                           </Avatar>
+                           <div>
+                              <p className="font-bold font-headline">{item.name}</p>
+                              <p className="text-sm text-muted-foreground">{item.title}</p>
+                           </div>
+                        </div>
                       </CardContent>
                     </Card>
                   </div>

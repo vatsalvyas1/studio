@@ -2,109 +2,57 @@
 
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { useState } from 'react';
-import { Plus } from 'lucide-react';
+import { PlayCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const portfolioItems = [
-  { src: 'https://placehold.co/600x400.png', alt: 'Project One', hint: 'web design app' },
-  { src: 'https://placehold.co/400x600.png', alt: 'Project Two', hint: 'mobile dashboard' },
-  { src: 'https://placehold.co/600x400.png', alt: 'Project Three', hint: 'ecommerce website' },
-  { src: 'https://placehold.co/600x400.png', alt: 'Project Four', hint: 'corporate branding' },
-  { src: 'https://placehold.co/400x600.png', alt: 'Project Five', hint: 'saas interface' },
-  { src: 'https://placehold.co/600x400.png', alt: 'Project Six', hint: 'portfolio landing' },
-];
+const HowItWorksSection = () => {
 
-const PortfolioSection = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
-  const headingVariants = {
+  const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
-  const galleryVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-  };
-
   return (
-    <section id="portfolio" className="py-20 lg:py-32 bg-card">
+    <section id="how-it-works" className="py-20 lg:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          variants={headingVariants}
+          variants={itemVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="font-headline text-3xl md:text-4xl font-bold">Our Work</h2>
+          <h2 className="font-headline text-3xl md:text-5xl font-bold">See the magic in action</h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            A glimpse into the successful projects we've delivered for our clients.
+            Watch a quick overview of how OpenNote transforms your notes into structured knowledge.
           </p>
         </motion.div>
 
-        <Dialog onOpenChange={(open) => !open && setSelectedImage(null)}>
-          <motion.div 
-            className="columns-2 md:columns-3 gap-4"
-            variants={galleryVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {portfolioItems.map((item, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="mb-4 break-inside-avoid group relative cursor-pointer"
-              >
-                <DialogTrigger asChild onClick={() => setSelectedImage(item.src)}>
-                  <div>
-                    <Card className="overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-xl rounded-lg">
-                      <Image
-                        src={item.src}
-                        alt={item.alt}
-                        data-ai-hint={item.hint}
-                        width={600}
-                        height={item.src.includes('400x600') ? 600 : 400}
-                        className="w-full h-auto object-cover"
-                      />
-                    </Card>
-                     <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
-                        <Plus className="h-12 w-12 text-white" />
-                     </div>
-                  </div>
-                </DialogTrigger>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <DialogContent className="max-w-4xl p-0 border-0 bg-transparent">
-            {selectedImage && (
+        <motion.div 
+          variants={itemVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <Card className="overflow-hidden shadow-2xl shadow-accent/10 rounded-xl border-border/50 group cursor-pointer">
+            <div className="relative">
               <Image
-                src={selectedImage}
-                alt="Selected project"
+                src="https://placehold.co/1200x675.png"
+                alt="OpenNote application interface"
+                data-ai-hint="application user interface"
                 width={1200}
-                height={800}
-                className="w-full h-auto rounded-lg object-contain"
+                height={675}
+                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
               />
-            )}
-          </DialogContent>
-        </Dialog>
+              <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                <PlayCircle className="h-20 w-20 text-white/80 transition-all duration-300 group-hover:text-white group-hover:scale-110" />
+              </div>
+            </div>
+          </Card>
+        </motion.div>
       </div>
     </section>
   );
 };
 
-export default PortfolioSection;
+export default HowItWorksSection;
