@@ -67,7 +67,11 @@ const ServicesSection = () => {
           viewport={{ once: true, amount: 0.2 }}
         >
           {services.map((service) => (
-            <motion.div key={service.title} variants={itemVariants}>
+            <motion.div 
+              key={service.title} 
+              variants={itemVariants}
+              whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
+            >
               <Card className="text-left h-full bg-card/50 border-border/50 transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10">
                 <CardHeader>
                   <div className="mb-4">

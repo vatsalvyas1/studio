@@ -1,9 +1,11 @@
 "use client";
 
+import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { motion } from 'framer-motion';
+import Autoplay from 'embla-carousel-autoplay';
 
 const testimonials = [
   {
@@ -30,6 +32,10 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
+  const plugin = React.useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true, stopOnMouseEnter: true })
+  );
+
   const variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -59,6 +65,7 @@ const TestimonialsSection = () => {
           viewport={{ once: true, amount: 0.2 }}
         >
           <Carousel
+            plugins={[plugin.current]}
             opts={{
               align: 'start',
               loop: true,

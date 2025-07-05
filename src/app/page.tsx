@@ -6,6 +6,7 @@ import ProjectsSection from '@/components/sections/ProjectsSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CtaSection from '@/components/sections/CtaSection';
 import Footer from '@/components/layout/Footer';
+import { AnimatedSeparator } from '@/components/animated-separator';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <HeroSection />
         <ClientsSection />
         <ServicesSection />
+        <AnimatedSeparator />
         <ProjectsSection />
         <TestimonialsSection />
         <CtaSection />

@@ -78,9 +78,13 @@ const ProjectsSection = () => {
           viewport={{ once: true, amount: 0.1 }}
         >
           {projects.map((project) => (
-            <motion.div key={project.title} variants={itemVariants}>
+            <motion.div 
+              key={project.title} 
+              variants={itemVariants}
+              whileHover={{ y: -8, transition: { duration: 0.2 } }}
+            >
               <Link href="#">
-                <Card className="group overflow-hidden rounded-xl border-border/50 hover:border-accent/50 transition-all duration-300 h-full flex flex-col">
+                <Card className="group overflow-hidden rounded-xl border-border/50 hover:border-accent/50 transition-all duration-300 h-full flex flex-col shadow-sm hover:shadow-xl hover:shadow-accent/10">
                   <div className="overflow-hidden">
                     <Image
                       src={project.image}
