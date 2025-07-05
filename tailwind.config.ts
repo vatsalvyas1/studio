@@ -115,7 +115,11 @@ export default {
         'infinite-scroll': {
           'from': { transform: 'translateX(0)' },
           'to': { transform: 'translateX(-100%)' },
-        }
+        },
+        'grid-pan': {
+          '0%': { backgroundPosition: '0% 0%' },
+          '100%': { backgroundPosition: '80px 80px' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -125,6 +129,7 @@ export default {
         'blob3': 'blob3 15s infinite ease-in-out',
         'blob4': 'blob4 8s infinite',
         'infinite-scroll': 'infinite-scroll 40s linear infinite',
+        'grid-pan': 'grid-pan 30s linear infinite',
       },
     },
   },

@@ -36,7 +36,7 @@ const HeroSection = () => {
       <motion.div 
         style={{ y: backgroundY }}
         className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-background grid-background" />
+          <div className="absolute inset-0 bg-background grid-background animate-grid-pan" />
           <div aria-hidden="true" className="absolute inset-0 z-[1] flex items-center justify-center">
             <div className="relative">
               <div className="absolute -inset-20 bg-accent/20 rounded-full blur-3xl opacity-40 animate-blob" />

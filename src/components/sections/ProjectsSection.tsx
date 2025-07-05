@@ -56,7 +56,9 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="py-20 lg:py-32">
+    <section id="projects" className="py-20 lg:py-32 relative overflow-hidden">
+      <div aria-hidden="true" className="absolute top-1/4 left-10 w-8 h-8 bg-accent/20 rounded-full opacity-50 animate-blob -z-10" />
+      <div aria-hidden="true" className="absolute bottom-1/4 right-10 w-12 h-12 bg-primary/10 rounded-full opacity-50 animate-blob2 animation-delay-4000 -z-10" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
