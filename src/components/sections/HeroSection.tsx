@@ -27,14 +27,12 @@ const HeroSection = () => {
     }
   };
 
-  const blob1X = useTransform(mouseX, value => value * -50);
-  const blob1Y = useTransform(mouseY, value => value * -40);
-  const blob2X = useTransform(mouseX, value => value * 80);
-  const blob2Y = useTransform(mouseY, value => value * 60);
-  const blob3X = useTransform(mouseX, value => value * -40);
-  const blob3Y = useTransform(mouseY, value => value * -60);
-  const blob4X = useTransform(mouseX, value => value * 50);
-  const blob4Y = useTransform(mouseY, value => value * 70);
+  const shape1X = useTransform(mouseX, value => value * -50);
+  const shape1Y = useTransform(mouseY, value => value * -30);
+  const shape2X = useTransform(mouseX, value => value * 80);
+  const shape2Y = useTransform(mouseY, value => value * 60);
+  const shape3X = useTransform(mouseX, value => value * -30);
+  const shape3Y = useTransform(mouseY, value => value * 70);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -65,24 +63,18 @@ const HeroSection = () => {
       >
         <div className="absolute inset-0 bg-background grid-background animate-grid-pan" />
         <div aria-hidden="true" className="absolute inset-0 z-[1] flex items-center justify-center">
-          <div className="relative w-full h-full">
-            <motion.div 
-              style={{ x: blob1X, y: blob1Y }}
-              className="absolute top-1/4 left-1/4 w-72 h-72 bg-accent/10 rounded-3xl opacity-50 backdrop-blur-md border border-white/10 animate-blob" 
-            />
-            <motion.div 
-              style={{ x: blob2X, y: blob2Y }}
-              className="absolute top-10 right-10 w-96 h-96 bg-primary/5 rounded-full opacity-50 backdrop-blur-lg border border-white/5 animate-blob2 animation-delay-2000" 
-            />
-            <motion.div 
-              style={{ x: blob3X, y: blob3Y }}
-              className="absolute bottom-10 left-10 w-80 h-80 bg-accent/5 rounded-3xl opacity-60 backdrop-blur-md border border-white/10 animate-blob3 animation-delay-4000" 
-            />
-            <motion.div 
-              style={{ x: blob4X, y: blob4Y }}
-              className="absolute -bottom-20 -right-20 w-96 h-96 bg-primary/10 rounded-full opacity-40 backdrop-blur-xl border border-white/5 animate-blob4" 
-            />
-          </div>
+          <motion.div
+              style={{ x: shape1X, y: shape1Y }}
+              className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-accent/20 via-accent/10 to-transparent rounded-full opacity-60 filter blur-2xl animate-blob"
+          />
+          <motion.div
+              style={{ x: shape2X, y: shape2Y }}
+              className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-tl from-primary/10 via-primary/5 to-transparent rounded-full opacity-50 filter blur-3xl animate-blob2 animation-delay-2000"
+          />
+          <motion.div
+              style={{ x: shape3X, y: shape3Y }}
+              className="absolute bottom-1/2 right-1/2 w-72 h-72 bg-gradient-to-tr from-accent/10 to-transparent rounded-2xl opacity-40 filter blur-xl animate-blob3 animation-delay-4000"
+          />
         </div>
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10"></div>

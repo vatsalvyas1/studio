@@ -54,11 +54,6 @@ const ServicesSection = () => {
     rest: { y: 0 },
     hover: { y: -8, transition: { duration: 0.2, ease: "easeOut" } }
   };
-  
-  const glassShapeVariants = {
-    rest: { rotate: 0, scale: 1 },
-    hover: { rotate: 45, scale: 1.2 },
-  };
 
   return (
     <section id="services" ref={ref} className="py-20 lg:py-32 relative overflow-hidden">
@@ -99,13 +94,6 @@ const ServicesSection = () => {
             >
               <motion.div variants={cardMotionVariants} className="h-full">
                 <Card className="relative overflow-hidden text-left h-full bg-card/50 border-border/50 transition-all duration-300 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/10">
-                  <motion.div
-                    aria-hidden="true"
-                    className="absolute -top-10 -right-10 w-32 h-32 bg-accent/10 backdrop-blur-sm rounded-2xl border border-white/5 opacity-80"
-                    variants={glassShapeVariants}
-                    transition={{ duration: 0.5, ease: 'backOut' }}
-                  />
-                  
                   <div className="relative z-10 h-full flex flex-col">
                     <CardHeader>
                       <div className="mb-4">
