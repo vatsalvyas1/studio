@@ -50,9 +50,26 @@ const ProjectsSection = () => {
     },
   };
 
-  const itemVariants = {
+  const headingVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  };
+
+  const projectCardVariants = {
+    hidden: (direction: 'left' | 'right' | 'up') => ({
+      opacity: 0,
+      x: direction === 'left' ? -80 : direction === 'right' ? 80 : 0,
+      y: direction === 'up' ? 80 : 0,
+    }),
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: { 
+        duration: 0.7,
+        ease: [0.6, 0.05, -0.01, 0.9]
+      },
+    },
   };
 
   return (
@@ -64,7 +81,7 @@ const ProjectsSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          variants={itemVariants}
+          variants={headingVariants}
           className="text-center mb-16"
         >
           <h2 className="font-headline text-3xl md:text-5xl font-bold">Our Work</h2>
@@ -83,7 +100,8 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <motion.div 
               key={project.title} 
-              variants={itemVariants}
+              custom={index === 0 ? 'up' : index % 2 !== 0 ? 'right' : 'left'}
+              variants={projectCardVariants}
               whileHover={{ scale: 1.03, y: -5 }}
               transition={{ type: "spring", stiffness: 300 }}
               className={cn(index === 0 && 'md:col-span-2 lg:col-span-2')}
