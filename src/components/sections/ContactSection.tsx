@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useFormStatus } from 'react-dom';
 import { submitContactFormAction, type ContactFormState } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,7 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import Image from 'next/image';
 import { Send, MapPin, Phone, Mail } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { useActionState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 function SubmitButton() {
@@ -23,7 +23,7 @@ function SubmitButton() {
 
 const ContactSection = () => {
   const initialState: ContactFormState = null;
-  const [state, formAction] = useFormState(submitContactFormAction, initialState);
+  const [state, formAction] = useActionState(submitContactFormAction, initialState);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
