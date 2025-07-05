@@ -78,8 +78,8 @@ const HeroSection = () => {
   });
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const contentOpacity = useTransform(scrollYProgress, [0.2, 0.7], [1, 0]);
-  const contentBlur = useTransform(scrollYProgress, [0.2, 0.7], ['blur(0px)', 'blur(8px)']);
+  const contentOpacity = useTransform(scrollYProgress, [0.4, 0.7], [1, 0]);
+  const contentBlur = useTransform(scrollYProgress, [0.4, 0.7], ['blur(0px)', 'blur(8px)']);
   
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -159,7 +159,7 @@ const HeroSection = () => {
           initial="hidden"
           animate="visible"
           style={{ opacity: contentOpacity, filter: contentBlur }}
-          className="flex flex-col items-center mt-20"
+          className="flex flex-col items-center mt-24"
         >
           <motion.h1 
             variants={itemVariants}
@@ -189,7 +189,7 @@ const HeroSection = () => {
 
           <motion.div
             variants={itemVariants}
-            className="mt-24 w-full"
+            className="mt-28 w-full"
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-border">
               <AnimatedStat to={1357921} suffix="+" label="Businesses Online" />

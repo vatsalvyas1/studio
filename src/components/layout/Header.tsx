@@ -18,22 +18,22 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4">
+      <header className="fixed top-4 left-0 right-0 z-50 px-4">
         <motion.div
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
           className="container mx-auto"
         >
-          <div className="relative flex h-14 items-center justify-between">
+          <div className="relative flex h-16 items-center justify-between rounded-full border border-black/10 bg-white/30 px-4 shadow-lg backdrop-blur-xl dark:border-white/10 dark:bg-black/20 sm:px-6">
             {/* Logo */}
             <Link href="#home" className="flex flex-shrink-0 items-center gap-2">
               <Sparkles className="h-6 w-6 text-accent" />
-              <span className="font-headline text-xl font-bold text-foreground">3AM Devs</span>
+              <span className="hidden font-headline text-xl font-bold text-foreground sm:inline">3AM Devs</span>
             </Link>
 
             {/* Centered Nav for Desktop */}
-            <nav className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-1 border border-black/10 bg-white/30 p-2 shadow-lg backdrop-blur-xl dark:border-white/10 dark:bg-black/20 rounded-full">
+            <nav className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-1">
               {navLinks.map((link) => (
                  <Button key={link.href} variant="ghost" asChild className="rounded-full text-sm font-normal h-8">
                     <Link href={link.href}>{link.label}</Link>
