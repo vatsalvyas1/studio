@@ -8,21 +8,24 @@ import { motion } from 'framer-motion';
 const testimonials = [
   {
     name: 'Sarah L.',
-    title: 'Product Manager, Stripe',
+    title: 'CEO, QuantumLeap',
     avatar: 'https://placehold.co/100x100.png',
-    testimonial: 'OpenNote has become my second brain. The AI summarization is a game-changer for my meeting notes, and I can find anything in seconds.',
+    testimonial: 'DevRidge delivered a product that exceeded our expectations. Their attention to detail and commitment to quality is unparalleled. Our new platform is fast, beautiful, and loved by our users.',
+    hint: 'portrait woman'
   },
   {
     name: 'Mikael D.',
-    title: 'Designer, Framer',
+    title: 'Founder, NovaMart',
     avatar: 'https://placehold.co/100x100.png',
-    testimonial: "I'm a visual thinker, and OpenNote lets me organize my thoughts with notes, images, and links seamlessly. It's beautifully designed and incredibly powerful.",
+    testimonial: "The team at DevRidge is phenomenal. They understood our vision perfectly and executed it flawlessly. Our online sales have increased by 40% since the new site launch.",
+    hint: 'portrait man'
   },
   {
     name: 'Alex C.',
-    title: 'PhD Student, MIT',
+    title: 'CTO, ConnectSphere',
     avatar: 'https://placehold.co/100x100.png',
-    testimonial: "As a researcher, I'm drowning in papers and notes. OpenNote's AI helps me connect ideas I would have otherwise missed. It's indispensable.",
+    testimonial: "Working with DevRidge was a breeze. Their process is transparent, and their communication is top-notch. They are true partners, not just developers.",
+    hint: 'portrait person'
   },
 ];
 
@@ -33,7 +36,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 lg:py-32 bg-secondary/20">
+    <section id="testimonials" className="py-20 lg:py-32 bg-secondary/40">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={variants}
@@ -42,9 +45,9 @@ const TestimonialsSection = () => {
           viewport={{ once: true, amount: 0.5 }}
         >
           <div className="text-center mb-12">
-            <h2 className="font-headline text-3xl md:text-5xl font-bold">Loved by the world's most productive people</h2>
+            <h2 className="font-headline text-3xl md:text-5xl font-bold">What Our Clients Say</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              Don't just take our word for it. Here's what our users have to say.
+              We're proud to have built strong relationships with our clients.
             </p>
           </div>
         </motion.div>
@@ -71,7 +74,7 @@ const TestimonialsSection = () => {
                         <blockquote className="text-base text-foreground mb-4 flex-grow">"{item.testimonial}"</blockquote>
                         <div className="flex items-center gap-4 mt-auto pt-4">
                            <Avatar className="w-10 h-10">
-                              <AvatarImage src={item.avatar} alt={item.name} />
+                              <AvatarImage src={item.avatar} alt={item.name} data-ai-hint={item.hint} />
                               <AvatarFallback>{item.name.charAt(0)}</AvatarFallback>
                            </Avatar>
                            <div>

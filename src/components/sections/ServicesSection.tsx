@@ -1,33 +1,33 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Sparkles, Search, Zap, Network } from 'lucide-react';
+import { Code, PenTool, Server, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const features = [
+const services = [
   {
-    icon: <Sparkles className="h-8 w-8 text-accent" />,
-    title: 'Capture everything, effortlessly.',
-    description: 'Transcribe voice notes, save web pages, and write down your ideas. All in one place.',
+    icon: <Code className="h-8 w-8 text-accent" />,
+    title: 'Web Development',
+    description: 'We build fast, scalable, and secure web applications tailored to your specific needs using modern technologies.',
   },
   {
-    icon: <Search className="h-8 w-8 text-accent" />,
-    title: 'Find anything, instantly.',
-    description: 'Our AI-powered search understands natural language. Find what you need without remembering how you filed it.',
+    icon: <PenTool className="h-8 w-8 text-accent" />,
+    title: 'UI/UX Design',
+    description: 'Our design team creates intuitive and beautiful interfaces that provide an exceptional user experience.',
   },
   {
-    icon: <Zap className="h-8 w-8 text-accent" />,
-    title: 'Automate your workflows.',
-    description: "Let AI summarize, create action items, and connect related thoughts automatically.",
+    icon: <Server className="h-8 w-8 text-accent" />,
+    title: 'Hosting & Deployment',
+    description: "We handle the complexities of hosting and deployment, ensuring your site is always available and performant.",
   },
   {
-    icon: <Network className="h-8 w-8 text-accent" />,
-    title: 'Structure thoughts your way.',
-    description: 'Use tags, nested notes, and backlinks to create a knowledge base that works for you.',
+    icon: <ShieldCheck className="h-8 w-8 text-accent" />,
+    title: 'Maintenance & Support',
+    description: 'Our ongoing support and maintenance plans keep your website secure, updated, and running smoothly.',
   },
 ];
 
-const FeaturesSection = () => {
+const ServicesSection = () => {
   const containerVariants = {
     hidden: {},
     visible: {
@@ -43,7 +43,7 @@ const FeaturesSection = () => {
   };
 
   return (
-    <section id="features" className="py-20 lg:py-32 bg-secondary/20">
+    <section id="services" className="py-20 lg:py-32 bg-secondary/40">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={itemVariants}
@@ -52,9 +52,9 @@ const FeaturesSection = () => {
           viewport={{ once: true, amount: 0.5 }}
         >
           <div className="text-center mb-16">
-            <h2 className="font-headline text-3xl md:text-5xl font-bold">A second brain, built for the new wave of AI.</h2>
-            <p className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground">
-              OpenNote is more than just a notebook. It's an intelligent partner that helps you think better.
+            <h2 className="font-headline text-3xl md:text-5xl font-bold">Our Services</h2>
+            <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground">
+              From initial concept to final launch and beyond, we offer a complete suite of services to bring your digital vision to life.
             </p>
           </div>
         </motion.div>
@@ -66,19 +66,17 @@ const FeaturesSection = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {features.map((feature) => (
-            <motion.div key={feature.title} variants={itemVariants}>
+          {services.map((service) => (
+            <motion.div key={service.title} variants={itemVariants}>
               <Card className="text-left h-full bg-card/50 border-border/50 transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10">
                 <CardHeader>
-                  <div 
-                    className="mb-4"
-                  >
-                    {feature.icon}
+                  <div className="mb-4">
+                    {service.icon}
                   </div>
-                  <CardTitle className="font-headline text-2xl">{feature.title}</CardTitle>
+                  <CardTitle className="font-headline text-2xl">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{feature.description}</p>
+                  <p className="text-muted-foreground">{service.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -89,4 +87,4 @@ const FeaturesSection = () => {
   );
 };
 
-export default FeaturesSection;
+export default ServicesSection;

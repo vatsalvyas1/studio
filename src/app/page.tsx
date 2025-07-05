@@ -1,10 +1,10 @@
 import Header from '@/components/layout/Header';
 import HeroSection from '@/components/sections/HeroSection';
-import ClientsSection from '@/components/sections/AboutSection';
-import FeaturesSection from '@/components/sections/ServicesSection';
-import HowItWorksSection from '@/components/sections/PortfolioSection';
+import ClientsSection from '@/components/sections/ClientsSection';
+import ServicesSection from '@/components/sections/ServicesSection';
+import ProjectsSection from '@/components/sections/ProjectsSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
-import CtaSection from '@/components/sections/ContactSection';
+import CtaSection from '@/components/sections/CtaSection';
 import Footer from '@/components/layout/Footer';
 
 export default function Home() {
@@ -14,8 +14,8 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection />
         <ClientsSection />
-        <FeaturesSection />
-        <HowItWorksSection />
+        <ServicesSection />
+        <ProjectsSection />
         <TestimonialsSection />
         <CtaSection />
       </main>
