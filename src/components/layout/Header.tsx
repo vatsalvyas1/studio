@@ -29,7 +29,7 @@ const Header = () => {
             {/* Logo */}
             <Link href="#home" className="flex flex-shrink-0 items-center gap-2">
               <Sparkles className="h-6 w-6 text-accent" />
-              <span className="hidden font-headline text-xl font-bold text-foreground sm:inline">3AM Devs</span>
+              <span className="font-headline text-lg sm:text-xl font-bold text-foreground">3AM Devs</span>
             </Link>
 
             {/* Centered Nav for Desktop */}
