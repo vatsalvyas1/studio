@@ -1,7 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
@@ -40,17 +40,61 @@ const projects = [
   },
 ];
 
+const ProjectCard = ({ project, index }: { project: typeof projects[0], index: number }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "start 0.75"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [100, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.95, 1]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ y, opacity, scale }}
+      className={cn(index === 0 && 'md:col-span-2 lg:col-span-2')}
+    >
+      <Link href="#">
+        <Card className="group relative overflow-hidden rounded-xl border-border/50 transition-shadow duration-300 h-full shadow-sm hover:shadow-xl hover:shadow-accent/10">
+          <Image
+            src={project.image}
+            alt={project.title}
+            data-ai-hint={project.hint}
+            width={index === 0 ? 1200 : 800}
+            height={index === 0 ? 800 : 600}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+          <div className="absolute inset-0 p-6 flex flex-col justify-end">
+            <h3 className="font-headline text-2xl font-bold text-white">{project.title}</h3>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {project.tags.map(tag => (
+                <Badge key={tag} variant="secondary" className="bg-white/20 text-white border-0 backdrop-blur-sm">{tag}</Badge>
+              ))}
+            </div>
+            <div className="mt-4 transition-all duration-300 max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100">
+              <p className="text-white/80 mb-4 text-sm">{project.description}</p>
+              <div className="flex items-center text-accent font-semibold text-sm">
+                <span>View Work</span>
+                <ArrowRight className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+              </div>
+            </div>
+          </div>
+        </Card>
+      </Link>
+    </motion.div>
+  );
+};
+
+
 const ProjectsSection = () => {
   const headingVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
-
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
 
   return (
     <section id="projects" className="py-20 lg:py-32 relative overflow-hidden">
@@ -70,57 +114,10 @@ const ProjectsSection = () => {
           </p>
         </motion.div>
 
-        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => {
-            const direction = index === 0 ? 'up' : index % 2 !== 0 ? 'right' : 'left';
-            
-            const start = 0.1 + index * 0.1;
-            const end = 0.5 + index * 0.1;
-            const inputRange = [start, end];
-
-            const x = useTransform(scrollYProgress, inputRange, [direction === 'left' ? -100 : direction === 'right' ? 100 : 0, 0]);
-            const y = useTransform(scrollYProgress, inputRange, [direction === 'up' ? 100 : 0, 0]);
-            const opacity = useTransform(scrollYProgress, [start, start + 0.1], [0, 1]);
-
-            return (
-              <motion.div
-                key={project.title}
-                style={{ opacity, x, y }}
-                whileHover={{ scale: 1.03, y: -5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className={cn(index === 0 && 'md:col-span-2 lg:col-span-2')}
-              >
-                <Link href="#">
-                  <Card className="group relative overflow-hidden rounded-xl border-border/50 transition-shadow duration-300 h-full shadow-sm hover:shadow-xl hover:shadow-accent/10">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      data-ai-hint={project.hint}
-                      width={index === 0 ? 1200 : 800}
-                      height={index === 0 ? 800 : 600}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
-                    <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                      <h3 className="font-headline text-2xl font-bold text-white">{project.title}</h3>
-                      <div className="flex flex-wrap gap-2 mt-2">
-                        {project.tags.map(tag => (
-                          <Badge key={tag} variant="secondary" className="bg-white/20 text-white border-0 backdrop-blur-sm">{tag}</Badge>
-                        ))}
-                      </div>
-                      <div className="mt-4 transition-all duration-300 max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100">
-                        <p className="text-white/80 mb-4 text-sm">{project.description}</p>
-                        <div className="flex items-center text-accent font-semibold text-sm">
-                          <span>View Work</span>
-                          <ArrowRight className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                </Link>
-              </motion.div>
-            );
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.title} project={project} index={index} />
+          ))}
         </div>
       </div>
     </section>
