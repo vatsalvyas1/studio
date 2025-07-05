@@ -46,8 +46,8 @@ const HeroSection = () => {
   });
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-  const contentBlur = useTransform(scrollYProgress, [0, 0.6], ['blur(0px)', 'blur(8px)']);
+  const contentOpacity = useTransform(scrollYProgress, [0.2, 0.7], [1, 0]);
+  const contentBlur = useTransform(scrollYProgress, [0.2, 0.7], ['blur(0px)', 'blur(8px)']);
   
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
