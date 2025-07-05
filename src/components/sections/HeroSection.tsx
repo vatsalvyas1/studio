@@ -40,6 +40,13 @@ const HexagonIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
+const MouseIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <rect x="7" y="2" width="10" height="16" rx="5"></rect>
+        <path d="M12 6v4"></path>
+    </svg>
+);
+
 type AnimatedStatProps = {
   to: number;
   label: string;
@@ -103,6 +110,8 @@ const HeroSection = () => {
   const shape4Y = useTransform(mouseY, value => value * -50);
   const shape5X = useTransform(mouseX, value => value * -70);
   const shape5Y = useTransform(mouseY, value => value * 20);
+  const shape6X = useTransform(mouseX, value => value * 60);
+  const shape6Y = useTransform(mouseY, value => value * -40);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -147,6 +156,9 @@ const HeroSection = () => {
             </motion.div>
             <motion.div style={{ x: shape5X, y: shape5Y }} className="absolute top-[30%] right-[25%] w-12 h-12 text-accent/30">
                 <HexagonIcon className="w-full h-full animate-blob2 animation-delay-4000 rotate-45" />
+            </motion.div>
+            <motion.div style={{ x: shape6X, y: shape6Y }} className="absolute top-[50%] left-[5%] w-12 h-12 text-primary/20">
+                <MouseIcon className="w-full h-full animate-blob3" />
             </motion.div>
         </div>
       </motion.div>
