@@ -34,7 +34,17 @@ const HeroSection = () => {
     <section id="home" ref={targetRef} className="relative min-h-screen flex items-center justify-center overflow-hidden py-32">
       <motion.div 
         style={{ y: backgroundY }}
-        className="absolute inset-0 bg-background z-0 grid-background">
+        className="absolute inset-0 z-0">
+         <motion.div
+            className="absolute inset-0 bg-background grid-background"
+            animate={{ backgroundPosition: ["0% 0%", "0% 160px"] }}
+            transition={{
+              duration: 20,
+              ease: "linear",
+              repeat: Infinity,
+              repeatType: "loop"
+            }}
+          />
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10"></div>
       

@@ -13,28 +13,28 @@ const projects = [
     description: 'A cutting-edge SaaS platform for data analytics, featuring a dynamic dashboard and real-time reporting.',
     image: 'https://placehold.co/800x600.png',
     tags: ['Next.js', 'Tailwind', 'AI'],
-    hint: 'dashboard analytics'
+    hint: 'saas dashboard analytics'
   },
   {
     title: 'NovaMart',
     description: 'An e-commerce storefront with a custom headless CMS, optimized for performance and conversion.',
     image: 'https://placehold.co/800x600.png',
     tags: ['React', 'Headless CMS'],
-    hint: 'ecommerce shopping'
+    hint: 'fashion ecommerce website'
   },
   {
     title: 'ConnectSphere',
     description: 'A social networking app designed to connect professionals, with features like real-time chat and event management.',
     image: 'https://placehold.co/800x600.png',
     tags: ['Mobile App', 'Firebase'],
-    hint: 'social media'
+    hint: 'mobile social network'
   },
   {
     title: 'ArtisanPortfolio',
     description: 'A visually-driven portfolio website for a renowned photographer, focusing on minimalism and powerful imagery.',
     image: 'https://placehold.co/800x600.png',
     tags: ['Web Design', 'Animation'],
-    hint: 'portfolio gallery'
+    hint: 'minimalist photography portfolio'
   },
 ];
 
@@ -81,7 +81,7 @@ const ProjectsSection = () => {
             <motion.div 
               key={project.title} 
               variants={itemVariants}
-              whileHover={{ y: -8, transition: { duration: 0.2 } }}
+              whileHover={{ y: -8, scale: 1.03, transition: { duration: 0.2, ease: "easeOut" } }}
             >
               <Link href="#">
                 <Card className="group overflow-hidden rounded-xl border-border/50 hover:border-accent/50 transition-all duration-300 h-full flex flex-col shadow-sm hover:shadow-xl hover:shadow-accent/10">
