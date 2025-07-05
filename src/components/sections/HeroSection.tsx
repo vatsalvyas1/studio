@@ -35,16 +35,14 @@ const HeroSection = () => {
       <motion.div 
         style={{ y: backgroundY }}
         className="absolute inset-0 z-0">
-         <motion.div
-            className="absolute inset-0 bg-background grid-background"
-            animate={{ backgroundPosition: ["0% 0%", "0% 160px"] }}
-            transition={{
-              duration: 20,
-              ease: "linear",
-              repeat: Infinity,
-              repeatType: "loop"
-            }}
-          />
+          <div className="absolute inset-0 bg-background grid-background" />
+          <div aria-hidden="true" className="absolute inset-0 z-[1] flex items-center justify-center">
+            <div className="relative">
+              <div className="absolute -inset-20 bg-accent/30 rounded-full blur-3xl opacity-20 animate-blob" />
+              <div className="absolute -inset-10 top-10 bg-primary/30 rounded-full blur-3xl opacity-20 animate-blob animation-delay-2000" />
+              <div className="absolute -inset-10 left-10 bg-secondary/30 rounded-full blur-3xl opacity-20 animate-blob animation-delay-4000" />
+            </div>
+          </div>
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10"></div>
       

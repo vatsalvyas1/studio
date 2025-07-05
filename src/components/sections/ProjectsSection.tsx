@@ -6,12 +6,13 @@ import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 const projects = [
   {
     title: 'QuantumLeap',
     description: 'A cutting-edge SaaS platform for data analytics, featuring a dynamic dashboard and real-time reporting.',
-    image: 'https://placehold.co/800x600.png',
+    image: 'https://placehold.co/1200x800.png',
     tags: ['Next.js', 'Tailwind', 'AI'],
     hint: 'saas dashboard analytics'
   },
@@ -71,45 +72,44 @@ const ProjectsSection = () => {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
         >
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <motion.div 
               key={project.title} 
               variants={itemVariants}
-              whileHover={{ y: -8, scale: 1.03, transition: { duration: 0.2, ease: "easeOut" } }}
+              className={cn(index === 0 && 'md:col-span-2 lg:col-span-2')}
             >
               <Link href="#">
-                <Card className="group overflow-hidden rounded-xl border-border/50 hover:border-accent/50 transition-all duration-300 h-full flex flex-col shadow-sm hover:shadow-xl hover:shadow-accent/10">
-                  <div className="overflow-hidden">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      data-ai-hint={project.hint}
-                      width={800}
-                      height={600}
-                      className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <CardContent className="p-6 flex-grow flex flex-col">
-                    <div className="flex-grow">
-                      <h3 className="font-headline text-2xl font-bold mb-2">{project.title}</h3>
-                      <p className="text-muted-foreground mb-4">{project.description}</p>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tags.map(tag => (
-                          <Badge key={tag} variant="secondary">{tag}</Badge>
-                        ))}
+                <Card className="group relative overflow-hidden rounded-xl border-border/50 transition-all duration-300 h-full shadow-sm hover:shadow-xl hover:shadow-accent/10">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    data-ai-hint={project.hint}
+                    width={index === 0 ? 1200 : 800}
+                    height={index === 0 ? 800 : 600}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+                  <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                    <h3 className="font-headline text-2xl font-bold text-white">{project.title}</h3>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {project.tags.map(tag => (
+                        <Badge key={tag} variant="secondary" className="bg-white/20 text-white border-0 backdrop-blur-sm">{tag}</Badge>
+                      ))}
+                    </div>
+                    <div className="mt-4 transition-all duration-300 max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100">
+                      <p className="text-white/80 mb-4 text-sm">{project.description}</p>
+                      <div className="flex items-center text-accent font-semibold text-sm">
+                        <span>View Case Study</span>
+                        <ArrowRight className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                       </div>
                     </div>
-                    <div className="mt-auto flex items-center text-accent font-semibold">
-                      <span>View Case Study</span>
-                      <ArrowRight className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-                    </div>
-                  </CardContent>
+                  </div>
                 </Card>
               </Link>
             </motion.div>

@@ -72,14 +72,18 @@ const ServicesSection = () => {
               variants={itemVariants}
               whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
             >
-              <Card className="text-left h-full bg-card/50 border-border/50 transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10">
-                <CardHeader>
+              <Card className="relative overflow-hidden text-left h-full bg-card/50 border-border/50 transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10">
+                <div aria-hidden="true" className="absolute inset-0 -z-10">
+                    <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-accent/5 opacity-50 blur-2xl"></div>
+                    <div className="absolute right-10 top-20 h-20 w-40 rounded-full bg-primary/5 opacity-50 blur-2xl"></div>
+                </div>
+                <CardHeader className="z-10">
                   <div className="mb-4">
                     {service.icon}
                   </div>
                   <CardTitle className="font-headline text-2xl">{service.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="z-10">
                   <p className="text-muted-foreground">{service.description}</p>
                 </CardContent>
               </Card>
