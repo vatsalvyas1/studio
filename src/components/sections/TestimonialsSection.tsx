@@ -12,21 +12,21 @@ const testimonials = [
     name: 'Sarah L.',
     title: 'CEO, QuantumLeap',
     avatar: 'https://placehold.co/100x100.png',
-    testimonial: 'DevRidge delivered a product that exceeded our expectations. Their attention to detail and commitment to quality is unparalleled. Our new platform is fast, beautiful, and loved by our users.',
+    testimonial: '3AM Devs delivered a product that exceeded our expectations. Their attention to detail and commitment to quality is unparalleled. Our new platform is fast, beautiful, and loved by our users.',
     hint: 'portrait woman'
   },
   {
     name: 'Mikael D.',
     title: 'Founder, NovaMart',
     avatar: 'https://placehold.co/100x100.png',
-    testimonial: "The team at DevRidge is phenomenal. They understood our vision perfectly and executed it flawlessly. Our online sales have increased by 40% since the new site launch.",
+    testimonial: "The team at 3AM Devs is phenomenal. They understood our vision perfectly and executed it flawlessly. Our online sales have increased by 40% since the new site launch.",
     hint: 'portrait man'
   },
   {
     name: 'Alex C.',
     title: 'CTO, ConnectSphere',
     avatar: 'https://placehold.co/100x100.png',
-    testimonial: "Working with DevRidge was a breeze. Their process is transparent, and their communication is top-notch. They are true partners, not just developers.",
+    testimonial: "Working with 3AM Devs was a breeze. Their process is transparent, and their communication is top-notch. They are true partners, not just developers.",
     hint: 'portrait person'
   },
 ];

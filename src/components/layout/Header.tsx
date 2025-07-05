@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { CodeXml, Menu, X } from 'lucide-react';
+import { Menu, Moon, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ThemeToggle } from '@/components/theme-toggle';
 
@@ -18,17 +18,17 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-[95%] sm:max-w-lg">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4">
         <motion.div
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
-          className="relative w-full rounded-full border border-black/10 bg-white/30 p-2 shadow-lg backdrop-blur-xl dark:border-white/10 dark:bg-black/20"
+          className="container mx-auto mt-4"
         >
-          <div className="flex items-center justify-between gap-4">
-            <Link href="/" className="flex flex-shrink-0 items-center gap-2 pl-2">
-              <CodeXml className="h-6 w-6 text-accent" />
-              <span className="font-headline text-xl font-bold text-foreground hidden sm:inline">DevRidge</span>
+          <div className="relative w-full rounded-full border border-black/10 bg-white/30 p-2 shadow-lg backdrop-blur-xl dark:border-white/10 dark:bg-black/20 flex items-center justify-between gap-4">
+            <Link href="#home" className="flex flex-shrink-0 items-center gap-2 pl-4">
+              <Moon className="h-6 w-6 text-accent" />
+              <span className="font-headline text-xl font-bold text-foreground">3AM Devs</span>
             </Link>
             <nav className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => (
@@ -37,16 +37,16 @@ const Header = () => {
                  </Button>
               ))}
             </nav>
-            <div className="hidden md:flex items-center gap-1">
+            <div className="flex items-center gap-1 pr-2">
               <ThemeToggle />
-              <Button asChild className="rounded-full text-xs h-8 bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button asChild className="rounded-full text-xs h-8 bg-primary hover:bg-primary/90 text-primary-foreground hidden sm:flex">
                 <Link href="#contact">Get a Quote</Link>
               </Button>
-            </div>
-            <div className="md:hidden">
-              <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(true)} className="rounded-full">
-                <Menu />
-              </Button>
+              <div className="sm:hidden">
+                <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(true)} className="rounded-full">
+                  <Menu />
+                </Button>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -71,15 +71,16 @@ const Header = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-center mb-8">
-                <Link href="/" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
-                  <CodeXml className="h-6 w-6 text-accent" />
-                  <span className="font-headline text-xl font-bold text-foreground">DevRidge</span>
+                <Link href="#home" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+                  <Moon className="h-6 w-6 text-accent" />
+                  <span className="font-headline text-xl font-bold text-foreground">3AM Devs</span>
                 </Link>
                 <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
                   <X />
                 </Button>
               </div>
               <nav className="flex flex-col gap-4 text-center">
+                <Link href="#home" className="text-lg font-medium p-2" onClick={() => setIsMenuOpen(false)}>Home</Link>
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
@@ -93,9 +94,6 @@ const Header = () => {
                  <Button asChild size="lg" className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => setIsMenuOpen(false)}>
                     <Link href="#contact">Get a Quote</Link>
                  </Button>
-                 <div className="mt-4 flex justify-center">
-                    <ThemeToggle />
-                 </div>
               </nav>
             </motion.div>
           </motion.div>

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CodeXml } from 'lucide-react';
+import { Moon } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -8,8 +8,8 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2 md:col-span-1 flex flex-col items-start space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <CodeXml className="h-6 w-6 text-accent" />
-              <span className="font-headline text-xl font-bold">DevRidge</span>
+              <Moon className="h-6 w-6 text-accent" />
+              <span className="font-headline text-xl font-bold">3AM Devs</span>
             </Link>
             <p className="text-sm text-muted-foreground">Crafting digital excellence.</p>
           </div>
@@ -25,7 +25,7 @@ const Footer = () => {
           <div>
             <h3 className="font-headline text-base font-semibold mb-4">Company</h3>
             <ul className="space-y-3">
-              <li><Link href="#about" className="text-sm text-muted-foreground hover:text-foreground">About</Link></li>
+              <li><Link href="#home" className="text-sm text-muted-foreground hover:text-foreground">About</Link></li>
               <li><Link href="#projects" className="text-sm text-muted-foreground hover:text-foreground">Work</Link></li>
               <li><Link href="#" className="text-sm text-muted-foreground hover:text-foreground">Careers</Link></li>
               <li><Link href="#contact" className="text-sm text-muted-foreground hover:text-foreground">Contact</Link></li>
@@ -40,7 +40,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} DevRidge Inc. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} 3AM Devs Inc. All rights reserved.</p>
         </div>
       </div>
     </footer>

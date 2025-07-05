@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'DevRidge | Digital Experiences That Drive Growth',
+  title: '3AM Devs | Digital Experiences That Drive Growth',
   description: 'We build beautiful, high-performance websites and applications for businesses of all sizes.',
 };
 
