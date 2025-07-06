@@ -27,9 +27,9 @@ const Header = () => {
         >
           <div className="relative flex h-16 items-center justify-between rounded-full border border-black/10 bg-white/30 px-4 shadow-lg backdrop-blur-xl dark:border-white/10 dark:bg-black/20 sm:px-6">
             {/* Logo */}
-            <Link href="#home" className="flex flex-shrink-0 items-center gap-2">
+            <Link href="#home" className="flex flex-shrink-0 items-center gap-2 text-foreground transition-opacity hover:opacity-80">
               <Sparkles className="h-6 w-6 text-accent" />
-              <span className="font-headline text-lg sm:text-xl font-bold text-foreground">3AM Devs</span>
+              <span className="font-headline text-lg sm:text-xl font-bold">3AM Devs</span>
             </Link>
 
             {/* Centered Nav for Desktop */}
