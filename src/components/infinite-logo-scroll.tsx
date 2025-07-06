@@ -44,13 +44,24 @@ const logos = [
     logo: () => (
       <div className="flex flex-col items-center text-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 11.3c.1-.3.1-.6.1-.9a8.95 8.95 0 0 0-8-8.95A8.95 8.95 0 0 0 4.15 11c-.1.3-.1.6-.1.9c0 1.6.5 3.1 1.4 4.4c.1.1.2.2.3.3c.1.1.1.1.2.2l3.4 3.4c.5.5 1.2.8 2 .8s1.5-.3 2-.8l3.4-3.4c.1-.1.1-.1.2-.2c.1-.1.2-.2.3-.3c.9-1.3 1.4-2.8 1.4-4.4Z" />
-          <path d="m8.5 8.5 7 7" />
-          <path d="m15.5 8.5-7 7" />
+          <path d="M21.2 9.2a6.4 6.4 0 0 0-8.4-8.4 6.4 6.4 0 0 0-8.4 8.4l1.5 1.5-1.5 1.5a6.4 6.4 0 0 0 8.4 8.4 6.4 6.4 0 0 0 8.4-8.4l-1.5-1.5 1.5-1.5Z"/>
+          <path d="m8.8 8.8 6.4 6.4"/>
         </svg>
         <p className="font-bold text-xl font-headline">Shagun<br />Sweets</p>
       </div>
     )
+  },
+  { 
+    name: 'HackIn', 
+    logo: () => (
+      <div className="flex flex-col items-center text-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="4 17 10 11 4 5"></polyline>
+          <line x1="12" y1="19" x2="20" y2="19"></line>
+        </svg>
+        <p className="font-bold text-xl font-headline">HackIn</p>
+      </div>
+    ) 
   },
   { 
     name: 'EXL', 
@@ -95,13 +106,24 @@ const logos = [
     logo: () => (
       <div className="flex flex-col items-center text-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 11.3c.1-.3.1-.6.1-.9a8.95 8.95 0 0 0-8-8.95A8.95 8.95 0 0 0 4.15 11c-.1.3-.1.6-.1.9c0 1.6.5 3.1 1.4 4.4c.1.1.2.2.3.3c.1.1.1.1.2.2l3.4 3.4c.5.5 1.2.8 2 .8s1.5-.3 2-.8l3.4-3.4c.1-.1.1-.1.2-.2c.1-.1.2-.2.3-.3c.9-1.3 1.4-2.8 1.4-4.4Z" />
-          <path d="m8.5 8.5 7 7" />
-          <path d="m15.5 8.5-7 7" />
+          <path d="M21.2 9.2a6.4 6.4 0 0 0-8.4-8.4 6.4 6.4 0 0 0-8.4 8.4l1.5 1.5-1.5 1.5a6.4 6.4 0 0 0 8.4 8.4 6.4 6.4 0 0 0 8.4-8.4l-1.5-1.5 1.5-1.5Z"/>
+          <path d="m8.8 8.8 6.4 6.4"/>
         </svg>
         <p className="font-bold text-xl font-headline">Shagun<br />Sweets</p>
       </div>
     )
+  },
+    { 
+    name: 'HackIn', 
+    logo: () => (
+      <div className="flex flex-col items-center text-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="4 17 10 11 4 5"></polyline>
+          <line x1="12" y1="19" x2="20" y2="19"></line>
+        </svg>
+        <p className="font-bold text-xl font-headline">HackIn</p>
+      </div>
+    ) 
   },
 ];
 
