@@ -20,8 +20,13 @@ const LogoIcon = () => (
       strokeLinejoin="round"
       className="h-6 w-6 text-accent"
     >
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      <path d="m16.5 7.5 1.5-3 1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z"></path>
+      <path d="M12 2v8" />
+      <path d="m4.93 10.93 1.41 1.41" />
+      <path d="M2 18h2" />
+      <path d="M20 18h2" />
+      <path d="m17.66 10.93 1.41-1.41" />
+      <path d="M18 22H6" />
+      <path d="M16 18a4 4 0 0 0-8 0" />
     </svg>
 );
 
