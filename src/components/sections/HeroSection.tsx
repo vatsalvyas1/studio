@@ -204,7 +204,7 @@ const HeroSection = () => {
           >
             <div className="grid grid-cols-1 md:grid-cols-3 text-center divide-y md:divide-y-0 md:divide-x divide-border">
               <AnimatedStat to={1357921} suffix="+" label="Businesses Went Online" />
-              <AnimatedStat to={200000} suffix="+" label="Websites Launched Daily" />
+              <AnimatedStat to={200000} suffix="+" label="Website Launches Daily" />
               <AnimatedStat to={40} suffix="%+" label="Revenue Growth" />
             </div>
           </motion.div>
