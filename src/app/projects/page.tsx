@@ -14,42 +14,42 @@ import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-mo
 const allProjects = [
   {
     title: 'NexFix',
-    description: 'A one stop solution for hardware, paints, and tools online.',
+    description: 'a one stop solution for hardware, paints, tool online',
     image: 'https://imgs.search.brave.com/zqrwXqEzY9anfpQOwaKJwLjjMxM4pZsEj8KD67DFW-k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNDc3/ODI4MzU0L3Bob3Rv/L21hbi13b3JraW5n/LWF0LWEtaGFyZHdh/cmUtc3RvcmUuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWd1/eGl5aDZoczJPakF3/RGtGOXY0ZzZOWnhO/aGVYQmQ5OTJTclhy/czJkZ3c9',
     tags: ['Next.js', 'Tailwind', 'AI'],
     hint: 'hardware store'
   },
   {
     title: 'Darpan',
-    description: 'An online fund raising platform for people in need.',
-    image: 'https://placehold.co/800x1000.png',
+    description: 'online fund rasing platform for people in need',
+    image: 'https://img.freepik.com/premium-photo/helping-poor-old-women-children-from-charity-fun-flood-affected-starving-people_612827-93056.jpg',
     tags: ['React', 'Headless CMS'],
-    hint: 'fashion ecommerce website'
+    hint: 'charity donation'
   },
   {
     title: 'HackIn',
-    description: 'A web hackathon hosting platform for organisers.',
+    description: 'a web hackathon hosting platform for organisers',
     image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751794207/hackIn_mskonw.png',
     tags: ['Mobile App', 'Firebase'],
     hint: 'hackathon website'
   },
   {
     title: 'Socio',
-    description: 'Built for colleges to connect with societies and alumni.',
-    image: 'https://t4.ftcdn.net/jpg/10/53/30/01/360_F_1053300152_U78eSF2jVaiu2n6mJfoewnZJdbSpwmIV.jpg',
+    description: 'built for colleges to connect to college societies and alumni',
+    image: 'https://imgs.search.brave.com/0blqmLNm0ZilG0DdcBHBhCwaCohztVvi_U35vi6uOeA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzEwLzUzLzMwLzAx/LzM2MF9GXzEwNTMz/MDAxNTJfVTc4ZVNG/MmpWYWl1Mm42bUpm/b2V3blpKZGJTcHdt/SVMuanBn',
     tags: ['Web Design', 'Animation'],
     hint: 'college students network'
   },
   {
     title: 'SyncSprint',
-    description: 'A platform to assist software developers to boost productivity.',
+    description: 'a platform to assist software developers to boos productivity',
     image: 'https://placehold.co/800x700.png',
     tags: ['React Native', 'AI', 'Health'],
     hint: 'fitness app dashboard'
   },
   {
     title: 'SneakersDekho',
-    description: 'A display website for a shoe store.',
+    description: 'a display website for a shoe store',
     image: 'https://placehold.co/800x600.png',
     tags: ['Web App', 'Sustainability'],
     hint: 'shoe website'
