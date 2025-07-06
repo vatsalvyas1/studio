@@ -4,48 +4,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { motion, useScroll, useTransform, useMotionValue, animate } from 'framer-motion';
 import { useRef, useEffect } from 'react';
-
-const TrendingUpIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
-        <polyline points="16 7 22 7 22 13" />
-    </svg>
-);
-
-const ConcentricCirclesIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="3" />
-      <circle cx="50" cy="50" r="25" stroke="currentColor" strokeWidth="3" />
-    </svg>
-);
-  
-const TriangleIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M12 3L2 21H22L12 3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-);
-
-const RocketIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M15.5834 8.41663L18.4118 5.58819" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M11.25 12.75L12.75 11.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M8.41663 15.5834L5.58819 18.4118" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M12.0001 2.08337C12.0001 2.08337 6.25008 6.25004 2.08341 12.0001C-2.08325 17.7501 6.25008 22.0834 12.0001 17.9167C17.7501 13.75 21.9167 7.91671 12.0001 2.08337Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-);
-
-const HexagonIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M21 8.5V15.5L12 20.5L3 15.5V8.5L12 3.5L21 8.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-);
-
-const MouseIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <rect x="7" y="2" width="10" height="16" rx="5"></rect>
-        <path d="M12 6v4"></path>
-    </svg>
-);
+import { Sparkles, Ghost, Heart, Star, Cat } from 'lucide-react';
 
 type AnimatedStatProps = {
   to: number;
@@ -100,18 +59,16 @@ const HeroSection = () => {
     }
   };
 
-  const shape1X = useTransform(mouseX, value => value * -50);
-  const shape1Y = useTransform(mouseY, value => value * -30);
-  const shape2X = useTransform(mouseX, value => value * 80);
-  const shape2Y = useTransform(mouseY, value => value * 60);
-  const shape3X = useTransform(mouseX, value => value * -30);
-  const shape3Y = useTransform(mouseY, value => value * 70);
-  const shape4X = useTransform(mouseX, value => value * 40);
-  const shape4Y = useTransform(mouseY, value => value * -50);
-  const shape5X = useTransform(mouseX, value => value * -70);
-  const shape5Y = useTransform(mouseY, value => value * 20);
-  const shape6X = useTransform(mouseX, value => value * 60);
-  const shape6Y = useTransform(mouseY, value => value * -40);
+  const shape1X = useTransform(mouseX, value => value * -40);
+  const shape1Y = useTransform(mouseY, value => value * -20);
+  const shape2X = useTransform(mouseX, value => value * 70);
+  const shape2Y = useTransform(mouseY, value => value * 50);
+  const shape3X = useTransform(mouseX, value => value * -25);
+  const shape3Y = useTransform(mouseY, value => value * 60);
+  const shape4X = useTransform(mouseX, value => value * -60);
+  const shape4Y = useTransform(mouseY, value => value * 40);
+  const shape5X = useTransform(mouseX, value => value * 50);
+  const shape5Y = useTransform(mouseY, value => value * -70);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -142,24 +99,21 @@ const HeroSection = () => {
       >
         <div className="absolute inset-0 bg-background grid-background animate-grid-pan" />
         <div aria-hidden="true" className="absolute inset-0 z-[1]">
-            <motion.div style={{ x: shape1X, y: shape1Y }} className="absolute top-[20%] left-[15%] w-20 h-20 text-accent/50">
-                <TrendingUpIcon className="w-full h-full animate-blob" />
-            </motion.div>
-            <motion.div style={{ x: shape2X, y: shape2Y }} className="absolute bottom-[25%] right-[10%] w-24 h-24 text-primary/30">
-                <ConcentricCirclesIcon className="w-full h-full animate-blob2 animation-delay-2000" />
-            </motion.div>
-            <motion.div style={{ x: shape3X, y: shape3Y }} className="absolute bottom-[50%] right-[45%] w-16 h-16 text-accent/40">
-                <TriangleIcon className="w-full h-full animate-blob3 animation-delay-4000" />
-            </motion.div>
-            <motion.div style={{ x: shape4X, y: shape4Y }} className="absolute bottom-[15%] left-[20%] w-20 h-20 text-accent/40 transform -rotate-45">
-                <RocketIcon className="w-full h-full animate-blob animation-delay-2000" />
-            </motion.div>
-            <motion.div style={{ x: shape5X, y: shape5Y }} className="absolute top-[30%] right-[25%] w-12 h-12 text-accent/30">
-                <HexagonIcon className="w-full h-full animate-blob2 animation-delay-4000 rotate-45" />
-            </motion.div>
-            <motion.div style={{ x: shape6X, y: shape6Y }} className="absolute top-[50%] left-[5%] w-12 h-12 text-primary/20">
-                <MouseIcon className="w-full h-full animate-blob3" />
-            </motion.div>
+              <motion.div style={{ x: shape1X, y: shape1Y }} className="absolute top-[10%] left-[15%] w-16 h-16 text-primary/30">
+                  <Sparkles className="w-full h-full animate-blob animation-delay-2000" />
+              </motion.div>
+              <motion.div style={{ x: shape2X, y: shape2Y }} className="absolute bottom-[10%] right-[10%] w-20 h-20 text-accent/40">
+                  <Ghost className="w-full h-full animate-blob2" />
+              </motion.div>
+              <motion.div style={{ x: shape3X, y: shape3Y }} className="absolute top-[20%] right-[20%] w-12 h-12 text-accent/30">
+                  <Heart className="w-full h-full animate-blob3 animation-delay-4000" />
+              </motion.div>
+              <motion.div style={{ x: shape4X, y: shape4Y }} className="absolute bottom-[20%] left-[25%] w-14 h-14 text-primary/20">
+                  <Star className="w-full h-full animate-blob" />
+              </motion.div>
+              <motion.div style={{ x: shape5X, y: shape5Y }} className="absolute top-[60%] right-[15%] w-16 h-16 text-accent/20">
+                  <Cat className="w-full h-full animate-blob2 animation-delay-3000" />
+              </motion.div>
         </div>
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10"></div>
