@@ -66,8 +66,8 @@ const AnimatedStat = ({ to, label, suffix = "", isFloat = false }: AnimatedStatP
   }, [to, count]);
 
   return (
-    <div>
-      <h3 className="font-headline text-3xl md:text-4xl font-bold text-accent">
+    <div className="px-4 py-8 md:py-0">
+      <h3 className="font-headline text-3xl sm:text-4xl font-bold text-accent">
         <motion.span>{rounded}</motion.span>{suffix}
       </h3>
       <p className="mt-2 text-muted-foreground">{label}</p>
@@ -200,9 +200,9 @@ const HeroSection = () => {
 
           <motion.div
             variants={itemVariants}
-            className="mt-28 w-full"
+            className="mt-20 md:mt-28 w-full"
           >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-border">
+            <div className="grid grid-cols-1 md:grid-cols-3 text-center divide-y md:divide-y-0 md:divide-x divide-border">
               <AnimatedStat to={1357921} suffix="+" label="Businesses Online" />
               <AnimatedStat to={234} suffix="+" label="Happy Clients" />
               <AnimatedStat to={280} suffix="%+" label="Revenue Growth" />
