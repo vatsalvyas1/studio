@@ -22,7 +22,7 @@ const allProjects = [
   },
   {
     title: 'Darpan',
-    description: 'An e-commerce storefront with a custom headless CMS, optimized for performance and conversion.',
+    description: 'An online fund raising platform for people in need.',
     image: 'https://placehold.co/800x1000.png',
     tags: ['React', 'Headless CMS'],
     hint: 'fashion ecommerce website'
@@ -210,7 +210,7 @@ export default function ProjectsPage() {
           className="absolute inset-0 z-0"
         >
           <div className="absolute inset-0 bg-background grid-background animate-grid-pan" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
           <div className="absolute inset-0 z-[1]">
               <motion.div style={{ x: shape1X, y: shape1Y }} className="absolute top-[10%] left-[15%] w-16 h-16 text-primary/30">
                   <Sparkles className="w-full h-full animate-blob animation-delay-2000" />
