@@ -138,7 +138,7 @@ export default function ProjectsPage() {
   const totalPages = Math.ceil(allProjects.length / projectsPerPage);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }, [currentPage]);
 
   const currentProjects = allProjects.slice(
