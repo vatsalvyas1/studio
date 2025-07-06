@@ -5,35 +5,44 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Quote } from 'lucide-react';
 import Autoplay from 'embla-carousel-autoplay';
 
 const testimonials = [
   {
-    name: 'Sarah L.',
-    title: 'CEO, QuantumLeap',
+    name: 'Ayush Singhal',
+    title: 'Owner, Aggarwal Cycles',
     avatar: 'https://placehold.co/100x100.png',
-    testimonial: '3AM Devs delivered a product that exceeded our expectations. Their attention to detail and commitment to quality is unparalleled. Our new platform is fast, beautiful, and loved by our users.',
-    hint: 'portrait woman'
-  },
-  {
-    name: 'Mikael D.',
-    title: 'Founder, NovaMart',
-    avatar: 'https://placehold.co/100x100.png',
-    testimonial: "The team at 3AM Devs is phenomenal. They understood our vision perfectly and executed it flawlessly. Our online sales have increased by 40% since the new site launch.",
+    testimonial: "3AM Devs transformed our local cycle shop into a digital storefront. Their design is clean, the site is incredibly fast, and our online inquiries have doubled. They understood our business needs perfectly.",
     hint: 'portrait man'
   },
   {
-    name: 'Alex C.',
-    title: 'CTO, ConnectSphere',
+    name: 'Rajat Mangla',
+    title: 'Owner, Mangla Hardwares',
     avatar: 'https://placehold.co/100x100.png',
-    testimonial: "Working with 3AM Devs was a breeze. Their process is transparent, and their communication is top-notch. They are true partners, not just developers.",
-    hint: 'portrait person'
+    testimonial: "Taking our decades-old hardware business online was a big step, but 3AM Devs made it seamless. They built us a robust e-commerce platform that's easy for our customers to use and for us to manage.",
+    hint: 'portrait man business'
+  },
+  {
+    name: 'Uday Sharma',
+    title: 'YouTuber',
+    avatar: 'https://placehold.co/100x100.png',
+    testimonial: "As a YouTuber, my personal brand is everything. The team created a stunning portfolio website that perfectly captures my style. It's the perfect hub for my community and has helped me land new sponsorship deals.",
+    hint: 'portrait person content'
+  },
+  {
+    name: 'Ritesh Jha',
+    title: 'Software Developer',
+    avatar: 'https://placehold.co/100x100.png',
+    testimonial: "Collaborating with 3AM Devs was a fantastic experience. Their code is clean, their development process is agile and transparent, and they're true experts in modern web technologies.",
+    hint: 'portrait developer'
   },
 ];
 
+
 const TestimonialsSection = () => {
   const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true, stopOnMouseEnter: true })
+    Autoplay({ delay: 3000, stopOnInteraction: false })
   );
 
   const ref = React.useRef<HTMLDivElement>(null);
@@ -83,14 +92,15 @@ const TestimonialsSection = () => {
             <CarouselContent className="-ml-4">
               {testimonials.map((item, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
-                    <Card className="h-full bg-card/80 border-border/50 transition-all duration-300 hover:shadow-xl hover:border-accent/50 hover:-translate-y-2 backdrop-blur-sm">
-                      <CardContent className="flex flex-col items-start justify-start p-6 text-left h-full">
+                  <div className="p-1 h-full">
+                    <Card className="relative h-full overflow-hidden bg-card/80 border-border/50 transition-all duration-300 hover:shadow-xl hover:border-accent/50 hover:-translate-y-2 backdrop-blur-sm">
+                      <Quote className="absolute top-4 right-4 h-16 w-16 text-primary/5 -rotate-12" />
+                      <CardContent className="relative z-10 flex flex-col items-start justify-start p-6 text-left h-full">
                         <blockquote className="text-base text-foreground mb-4 flex-grow">"{item.testimonial}"</blockquote>
-                        <div className="flex items-center gap-4 mt-auto pt-4">
+                        <div className="flex items-center gap-4 mt-auto pt-4 border-t border-border/50 w-full">
                            <Avatar className="w-10 h-10">
                               <AvatarImage src={item.avatar} alt={item.name} data-ai-hint={item.hint} />
-                              <AvatarFallback>{item.name.charAt(0)}</AvatarFallback>
+                              <AvatarFallback>{item.name.slice(0,2)}</AvatarFallback>
                            </Avatar>
                            <div>
                               <p className="font-bold font-headline">{item.name}</p>
