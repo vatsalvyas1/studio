@@ -9,7 +9,7 @@ const testimonials = [
   {
     name: 'Ayush Singhal',
     title: 'Owner, Aggarwal Cycles',
-    avatar: 'https://placehold.co/100x100.png',
+    avatar: 'https://media.licdn.com/dms/image/v2/D4D35AQH8-LmEUSfOEA/profile-framedphoto-shrink_400_400/B4DZYQoqsKGwAc-/0/1744035819155?e=1752440400&v=beta&t=imkAWrf_ORgvj9nierdBPI8I2os0FLY2ZkYixIvyAd0',
     testimonial: "3AM Devs transformed our local cycle shop into a digital storefront. Their design is clean, the site is incredibly fast, and our online inquiries have doubled. They understood our business needs perfectly.",
     hint: 'portrait man'
   },
