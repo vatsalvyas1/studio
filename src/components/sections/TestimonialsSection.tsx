@@ -23,7 +23,7 @@ const testimonials = [
   {
     name: 'Uday Sharma',
     title: 'YouTuber',
-    avatar: 'https://placehold.co/100x100.png',
+    avatar: 'https://media.licdn.com/dms/image/v2/D4D22AQE7ky83Ar1mVA/feedshare-shrink_1280/B4DZdfRNrrHMAo-/0/1749650050874?e=1754524800&v=beta&t=lEk0w58Ep2_N3eWy5ScQWj3a3DjcpJBLN-W-F5FiDKk',
     testimonial: "As a YouTuber, my personal brand is everything. The team created a stunning portfolio website that perfectly captures my style. It's the perfect hub for my community and has helped me land new sponsorship deals.",
     hint: 'portrait person content'
   },
