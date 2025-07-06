@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
@@ -30,9 +29,9 @@ const allProjects = [
   {
     title: 'HackIn',
     description: 'A web hackathon hosting platform for organisers.',
-    image: 'https://placehold.co/800x800.png',
+    image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751794207/hackIn_mskonw.png',
     tags: ['Mobile App', 'Firebase'],
-    hint: 'mobile social network'
+    hint: 'hackathon website'
   },
   {
     title: 'Socio',
