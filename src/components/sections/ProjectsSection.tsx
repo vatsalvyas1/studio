@@ -19,13 +19,6 @@ const projects = [
     hint: 'hardware store'
   },
   {
-    title: 'HackiN',
-    description: 'A one-stop solution for all the hackathons aiming to connect hackers worldwide.',
-    image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751794207/hackIn_mskonw.png',
-    tags: ['MERN Stack', 'Tailwind', 'Sockets'],
-    hint: 'hackathon website'
-  },
-  {
     title: 'Darpan',
     description: 'An online fund raising platform for people in need.',
     image: 'https://img.freepik.com/premium-photo/helping-poor-old-women-children-from-charity-fun-flood-affected-starving-people_612827-93056.jpg',
@@ -33,11 +26,18 @@ const projects = [
     hint: 'charity donation'
   },
   {
+    title: 'HackiN',
+    description: 'A one-stop solution for all the hackathons aiming to connect hackers worldwide.',
+    image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751794207/hackIn_mskonw.png',
+    tags: ['MERN Stack', 'Tailwind', 'Sockets'],
+    hint: 'hackathon website'
+  },
+  {
     title: 'Socio',
     description: 'Built for colleges to connect with societies and alumni.',
-    image: 'https://placehold.co/800x600.png',
+    image: 'https://t4.ftcdn.net/jpg/10/53/30/01/360_F_1053300152_U78eSF2jVaiu2n6mJfoewnZJdbSpwmIV.jpg',
     tags: ['Web Design', 'Animation'],
-    hint: 'minimalist photography portfolio'
+    hint: 'college students network'
   },
 ];
 
