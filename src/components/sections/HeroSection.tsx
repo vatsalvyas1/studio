@@ -103,25 +103,25 @@ const HeroSection = () => {
       >
         <div className="absolute inset-0 bg-background grid-background animate-grid-pan" />
         <div aria-hidden="true" className="absolute inset-0 z-[1]">
-              <motion.div style={{ x: shape1X, y: shape1Y }} className="absolute top-[10%] left-[20%] w-16 h-16 text-primary/20">
+              <motion.div style={{ x: shape1X, y: shape1Y }} className="absolute top-[20%] left-[25%] w-20 h-20 text-primary/15">
                   <TrendingUp className="w-full h-full animate-blob animation-delay-2000" />
               </motion.div>
-              <motion.div style={{ x: shape2X, y: shape2Y }} className="absolute bottom-[10%] right-[15%] w-20 h-20 text-accent/25">
+              <motion.div style={{ x: shape2X, y: shape2Y }} className="absolute bottom-[20%] right-[20%] w-24 h-24 text-accent/20">
                   <Code className="w-full h-full animate-blob2" />
               </motion.div>
-              <motion.div style={{ x: shape3X, y: shape3Y }} className="absolute top-[25%] right-[25%] w-12 h-12 text-accent/20">
+              <motion.div style={{ x: shape3X, y: shape3Y }} className="absolute top-[30%] right-[30%] w-16 h-16 text-accent/15">
                   <Globe className="w-full h-full animate-blob3 animation-delay-4000" />
               </motion.div>
-              <motion.div style={{ x: shape4X, y: shape4Y }} className="absolute bottom-[20%] left-[30%] w-14 h-14 text-primary/15">
+              <motion.div style={{ x: shape4X, y: shape4Y }} className="absolute bottom-[25%] left-[35%] w-16 h-16 text-primary/15">
                   <BarChart className="w-full h-full animate-blob" />
               </motion.div>
-              <motion.div style={{ x: shape5X, y: shape5Y }} className="absolute top-[60%] right-[20%] w-16 h-16 text-accent/15">
+              <motion.div style={{ x: shape5X, y: shape5Y }} className="absolute top-[55%] right-[25%] w-20 h-20 text-accent/15">
                   <Sprout className="w-full h-full animate-blob2 animation-delay-3000" />
               </motion.div>
-              <motion.div style={{ x: shape6X, y: shape6Y }} className="absolute top-[45%] left-[10%] w-12 h-12 text-primary/20">
+              <motion.div style={{ x: shape6X, y: shape6Y }} className="absolute top-[40%] left-[15%] w-16 h-16 text-primary/20">
                   <Rocket className="w-full h-full animate-blob3 animation-delay-1000" />
               </motion.div>
-              <motion.div style={{ x: shape7X, y: shape7Y }} className="absolute bottom-[35%] right-[30%] w-14 h-14 text-accent/20">
+              <motion.div style={{ x: shape7X, y: shape7Y }} className="absolute bottom-[40%] right-[35%] w-16 h-16 text-accent/20">
                   <Network className="w-full h-full animate-blob animation-delay-5000" />
               </motion.div>
         </div>
