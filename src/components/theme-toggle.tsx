@@ -24,7 +24,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="hover:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+      className="hover:bg-transparent hover:text-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
       aria-label="Toggle theme"
     >
       <AnimatePresence initial={false} mode="wait">
