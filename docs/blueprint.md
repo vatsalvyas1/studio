@@ -1,4 +1,4 @@
-# **App Name**: DevRidge Digital
+# **App Name**: 3AM Devs
 
 ## Core Features:
 
