@@ -35,9 +35,10 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: '#services', label: 'Services' },
-    { href: '#projects', label: 'Our Work' },
-    { href: '#testimonials', label: 'Testimonials' },
+    { href: '/', label: 'Home' },
+    { href: '/#services', label: 'Services' },
+    { href: '/projects', label: 'Our Work' },
+    { href: '/#testimonials', label: 'Testimonials' },
   ];
 
   return (
@@ -51,7 +52,7 @@ const Header = () => {
         >
           <div className="relative flex h-16 items-center justify-between rounded-full border border-black/10 bg-white/30 px-4 shadow-lg backdrop-blur-xl dark:border-white/10 dark:bg-black/20 sm:px-6">
             {/* Logo */}
-            <Link href="#home" className="flex flex-shrink-0 items-center gap-2 text-foreground transition-opacity hover:opacity-80">
+            <Link href="/" className="flex flex-shrink-0 items-center gap-2 text-foreground transition-opacity hover:opacity-80">
               <LogoIcon />
               <span className="font-headline text-lg sm:text-xl font-bold">3AM Devs</span>
             </Link>
@@ -69,7 +70,7 @@ const Header = () => {
             <div className="flex items-center gap-1">
               <ThemeToggle />
               <Button asChild className="rounded-full text-xs h-8 bg-primary hover:bg-primary/90 text-primary-foreground hidden sm:flex">
-                <Link href="#contact">Get a Quote</Link>
+                <Link href="/#contact">Get a Quote</Link>
               </Button>
               <div className="md:hidden">
                 <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(true)} className="rounded-full">
@@ -100,7 +101,7 @@ const Header = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-center mb-8">
-                <Link href="#home" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+                <Link href="/" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
                   <LogoIcon />
                   <span className="font-headline text-xl font-bold text-foreground">3AM Devs</span>
                 </Link>
@@ -109,7 +110,6 @@ const Header = () => {
                 </Button>
               </div>
               <nav className="flex flex-col gap-4 text-center">
-                <Link href="#home" className="text-lg font-medium p-2" onClick={() => setIsMenuOpen(false)}>Home</Link>
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
@@ -121,7 +121,7 @@ const Header = () => {
                   </Link>
                 ))}
                  <Button asChild size="lg" className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => setIsMenuOpen(false)}>
-                    <Link href="#contact">Get a Quote</Link>
+                    <Link href="/#contact">Get a Quote</Link>
                  </Button>
               </nav>
             </motion.div>

@@ -38,19 +38,19 @@ const Footer = () => {
           <div className="md:col-start-3">
             <h3 className="font-headline text-base font-semibold mb-4">Services</h3>
             <ul className="space-y-3">
-              <li><Link href="#services" className="text-sm text-muted-foreground hover:text-foreground">Web Development</Link></li>
-              <li><Link href="#services" className="text-sm text-muted-foreground hover:text-foreground">Web Design</Link></li>
-              <li><Link href="#services" className="text-sm text-muted-foreground hover:text-foreground">Hosting</Link></li>
-              <li><Link href="#services" className="text-sm text-muted-foreground hover:text-foreground">Maintenance</Link></li>
+              <li><Link href="/#services" className="text-sm text-muted-foreground hover:text-foreground">Web Development</Link></li>
+              <li><Link href="/#services" className="text-sm text-muted-foreground hover:text-foreground">Web Design</Link></li>
+              <li><Link href="/#services" className="text-sm text-muted-foreground hover:text-foreground">Hosting</Link></li>
+              <li><Link href="/#services" className="text-sm text-muted-foreground hover:text-foreground">Maintenance</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="font-headline text-base font-semibold mb-4">Company</h3>
             <ul className="space-y-3">
-              <li><Link href="#home" className="text-sm text-muted-foreground hover:text-foreground">About</Link></li>
-              <li><Link href="#projects" className="text-sm text-muted-foreground hover:text-foreground">Work</Link></li>
+              <li><Link href="/" className="text-sm text-muted-foreground hover:text-foreground">About</Link></li>
+              <li><Link href="/projects" className="text-sm text-muted-foreground hover:text-foreground">Work</Link></li>
               <li><Link href="#" className="text-sm text-muted-foreground hover:text-foreground">Careers</Link></li>
-              <li><Link href="#contact" className="text-sm text-muted-foreground hover:text-foreground">Contact</Link></li>
+              <li><Link href="/#contact" className="text-sm text-muted-foreground hover:text-foreground">Contact</Link></li>
             </ul>
           </div>
           <div>
