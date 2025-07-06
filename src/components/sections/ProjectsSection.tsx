@@ -14,9 +14,9 @@ const projects = [
   {
     title: 'NexFix',
     description: 'A one stop solution for hardware, paints, and tools online.',
-    image: 'https://imgs.search.brave.com/zqrwXqEzY9anfpQOwaKJwLjjMxM4pZsEj8KD67DFW-k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNDc3/ODI4MzU0L3Bob3Rv/L21hbi13b3JraW5n/LWF0LWEtaGFyZHdh/cmUtc3RvcmUuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWd1/eGl5aDZoczJPakF3/RGtGOXY0ZzZOWnhO/aGVYQmQ5OTJTclhy/czJkZ3c9',
+    image: 'https://imgs.search.brave.com/HXLrh9uZBBuKHTw1agKCx4i1JvQnBKShZxhmULZf5Bc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAyMi8w/MS8yOC8xMi8xNy9k/ZWxpdmVyeS02OTc0/NTA2XzY0MC5qcGc',
     tags: ['Next.js', 'Tailwind', 'AI'],
-    hint: 'hardware store'
+    hint: 'delivery person'
   },
   {
     title: 'Darpan',
