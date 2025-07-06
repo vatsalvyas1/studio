@@ -1,15 +1,15 @@
 "use client";
 
-import { useActionState, useRef, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { motion } from 'framer-motion';
-import { Loader2 } from 'lucide-react';
+import { useActionState, useRef, useEffect, startTransition } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { motion } from "framer-motion";
+import { Loader2 } from "lucide-react";
 
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Form,
   FormControl,
@@ -17,14 +17,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { useToast } from '@/hooks/use-toast';
-import { submitContactFormAction, type ContactFormState } from '@/app/actions';
+} from "@/components/ui/form";
+import { useToast } from "@/hooks/use-toast";
+import { submitContactFormAction, type ContactFormState } from "@/app/actions";
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
-  email: z.string().email({ message: 'Please enter a valid email.' }),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
+  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email." }),
+  message: z
+    .string()
+    .min(10, { message: "Message must be at least 10 characters." }),
 });
 
 export type ContactFormValues = z.infer<typeof formSchema>;
@@ -33,29 +35,36 @@ const CtaSection = () => {
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
-  const initialState: ContactFormState = { message: null, errors: null, success: false };
-  const [state, formAction, isPending] = useActionState(submitContactFormAction, initialState);
+  const initialState: ContactFormState = {
+    message: null,
+    errors: null,
+    success: false,
+  };
+  const [state, formAction, isPending] = useActionState(
+    submitContactFormAction,
+    initialState
+  );
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
-      email: '',
-      message: '',
+      name: "",
+      email: "",
+      message: "",
     },
   });
 
   useEffect(() => {
     if (state?.success) {
       toast({
-        title: 'Message Sent!',
+        title: "Message Sent!",
         description: "Thanks for reaching out. We'll get back to you soon.",
       });
       form.reset();
     } else if (state?.message && state?.errors) {
       toast({
-        variant: 'destructive',
-        title: 'Oops! Something went wrong.',
+        variant: "destructive",
+        title: "Oops! Something went wrong.",
         description: state.message,
       });
     }
@@ -84,8 +93,14 @@ const CtaSection = () => {
 
   return (
     <section id="contact" className="py-20 lg:py-32 relative overflow-hidden">
-      <div aria-hidden="true" className="absolute bottom-0 -left-10 w-24 h-24 bg-primary/5 rounded-full opacity-50 animate-blob animation-delay-2000 -z-10" />
-      <div aria-hidden="true" className="absolute top-0 -right-10 w-32 h-32 bg-accent/5 rounded-full opacity-50 animate-blob3 animation-delay-4000 -z-10" />
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 -left-10 w-24 h-24 bg-primary/5 rounded-full opacity-50 animate-blob animation-delay-2000 -z-10"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute top-0 -right-10 w-32 h-32 bg-accent/5 rounded-full opacity-50 animate-blob3 animation-delay-4000 -z-10"
+      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={headingVariants}
@@ -94,9 +109,12 @@ const CtaSection = () => {
           viewport={{ once: true, amount: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="font-headline text-3xl md:text-5xl font-bold">Let's Build Together</h2>
+          <h2 className="font-headline text-3xl md:text-5xl font-bold">
+            Let's Build Together
+          </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Have a project in mind? Fill out the form below and we'll get back to you as soon as possible.
+            Have a project in mind? Fill out the form below and we'll get back
+            to you as soon as possible.
           </p>
         </motion.div>
 
@@ -111,7 +129,9 @@ const CtaSection = () => {
               onSubmit={(evt) => {
                 evt.preventDefault();
                 form.handleSubmit(() => {
-                  formAction(new FormData(formRef.current!));
+                  startTransition(() => {
+                    formAction(new FormData(formRef.current!));
+                  });
                 })(evt);
               }}
               className="space-y-6"
@@ -139,7 +159,11 @@ const CtaSection = () => {
                     <FormItem>
                       <FormLabel>Email Address</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="you@example.com" {...field} />
+                        <Input
+                          type="email"
+                          placeholder="you@example.com"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -154,16 +178,30 @@ const CtaSection = () => {
                     <FormItem>
                       <FormLabel>Your Message</FormLabel>
                       <FormControl>
-                        <Textarea placeholder="Tell us about your project..." className="min-h-[150px]" {...field} />
+                        <Textarea
+                          placeholder="Tell us about your project..."
+                          className="min-h-[150px]"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
               </motion.div>
-              <motion.div variants={formItemVariants} className="text-center pt-4">
-                <Button type="submit" size="lg" disabled={isPending} className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/20">
-                  {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              <motion.div
+                variants={formItemVariants}
+                className="text-center pt-4"
+              >
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={isPending}
+                  className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/20"
+                >
+                  {isPending && (
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  )}
                   Send Message
                 </Button>
               </motion.div>
