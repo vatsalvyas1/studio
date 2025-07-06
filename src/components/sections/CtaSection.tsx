@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion } from "framer-motion";
-import { Loader2 } from "lucide-react";
+import { Loader2, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -107,10 +107,13 @@ const CtaSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="font-headline text-3xl md:text-5xl font-bold">
-            Let's Build Together
+          <h2 className="font-headline text-3xl md:text-5xl font-bold relative inline-block px-12 py-4">
+            <Sparkles className="absolute top-0 left-0 h-8 w-8 text-accent opacity-70 -rotate-12" />
+            <Sparkles className="absolute bottom-0 right-0 h-8 w-8 text-primary opacity-70 rotate-12" />
+            Let us build the website that makes your brand{" "}
+            <span className="italic text-accent">unforgettable</span>
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
             Have a project in mind? Fill out the form below and we'll get back
