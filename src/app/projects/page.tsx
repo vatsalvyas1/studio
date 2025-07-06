@@ -1,3 +1,7 @@
+
+"use client";
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -18,28 +22,28 @@ const allProjects = [
   {
     title: 'NovaMart',
     description: 'An e-commerce storefront with a custom headless CMS, optimized for performance and conversion.',
-    image: 'https://placehold.co/800x600.png',
+    image: 'https://placehold.co/800x1000.png',
     tags: ['React', 'Headless CMS'],
     hint: 'fashion ecommerce website'
   },
   {
     title: 'ConnectSphere',
     description: 'A social networking app designed to connect professionals, with features like real-time chat and event management.',
-    image: 'https://placehold.co/800x600.png',
+    image: 'https://placehold.co/800x800.png',
     tags: ['Mobile App', 'Firebase'],
     hint: 'mobile social network'
   },
   {
     title: 'ArtisanPortfolio',
     description: 'A visually-driven portfolio website for a renowned photographer, focusing on minimalism and powerful imagery.',
-    image: 'https://placehold.co/800x600.png',
+    image: 'https://placehold.co/800x1200.png',
     tags: ['Web Design', 'Animation'],
     hint: 'minimalist photography portfolio'
   },
   {
     title: 'HealthTrack',
     description: 'A mobile app for tracking fitness and health metrics, with personalized coaching.',
-    image: 'https://placehold.co/800x600.png',
+    image: 'https://placehold.co/800x700.png',
     tags: ['React Native', 'AI', 'Health'],
     hint: 'fitness app dashboard'
   },
@@ -50,42 +54,101 @@ const allProjects = [
     tags: ['Web App', 'Sustainability'],
     hint: 'food delivery app'
   },
+  {
+    title: 'StellarDocs',
+    description: 'A collaborative documentation platform for technical teams with version control.',
+    image: 'https://placehold.co/800x900.png',
+    tags: ['TypeScript', 'Web Sockets'],
+    hint: 'documentation website'
+  },
+  {
+    title: 'Momentum',
+    description: 'A sleek and simple habit-tracking application to help users build better routines.',
+    image: 'https://placehold.co/800x800.png',
+    tags: ['Productivity', 'Mobile App'],
+    hint: 'habit tracker app'
+  },
+  {
+    title: 'Wanderlust',
+    description: 'A travel planning app that uses AI to suggest itineraries based on user preferences.',
+    image: 'https://placehold.co/800x1100.png',
+    tags: ['AI', 'Travel', 'Web App'],
+    hint: 'travel planning interface'
+  },
+  {
+    title: 'CodeFlow',
+    description: 'An online IDE for front-end developers with real-time collaboration features.',
+    image: 'https://placehold.co/800x600.png',
+    tags: ['Developer Tools', 'SaaS'],
+    hint: 'code editor interface'
+  },
+  {
+    title: 'GourmetGo',
+    description: 'A premium meal-kit delivery service website with recipe tutorials.',
+    image: 'https://placehold.co/800x700.png',
+    tags: ['E-commerce', 'Food'],
+    hint: 'meal kit website'
+  },
+  {
+    title: 'Zenith CRM',
+    description: 'A powerful CRM for sales teams to manage leads and customer relationships.',
+    image: 'https://placehold.co/800x900.png',
+    tags: ['SaaS', 'Business'],
+    hint: 'crm dashboard'
+  }
 ];
 
 const ProjectCard = ({ project }: { project: typeof allProjects[0] }) => {
     return (
-        <Link href="#">
-            <Card className="group relative overflow-hidden rounded-xl border-border/50 transition-shadow duration-300 h-full shadow-sm hover:shadow-xl hover:shadow-accent/10">
-            <Image
-                src={project.image}
-                alt={project.title}
-                data-ai-hint={project.hint}
-                width={800}
-                height={600}
-                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
-            <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <h3 className="font-headline text-2xl font-bold text-white">{project.title}</h3>
-                <div className="flex flex-wrap gap-2 mt-2">
-                {project.tags.map(tag => (
-                    <Badge key={tag} variant="secondary" className="bg-white/20 text-white border-0 backdrop-blur-sm">{tag}</Badge>
-                ))}
+        <div className="mb-8 break-inside-avoid">
+            <Link href="#">
+                <Card className="group relative overflow-hidden rounded-xl border-border/50 transition-shadow duration-300 shadow-sm hover:shadow-xl hover:shadow-accent/10">
+                <Image
+                    src={project.image}
+                    alt={project.title}
+                    data-ai-hint={project.hint}
+                    width={800}
+                    height={600}
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                    <h3 className="font-headline text-2xl font-bold text-white">{project.title}</h3>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                    {project.tags.map(tag => (
+                        <Badge key={tag} variant="secondary" className="bg-white/20 text-white border-0 backdrop-blur-sm">{tag}</Badge>
+                    ))}
+                    </div>
+                    <div className="mt-4 transition-all duration-300 max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100">
+                    <p className="text-white/80 mb-4 text-sm">{project.description}</p>
+                    <div className="flex items-center text-accent font-semibold text-sm">
+                        <span>View Work</span>
+                        <ArrowRight className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                    </div>
+                    </div>
                 </div>
-                <div className="mt-4 transition-all duration-300 max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100">
-                <p className="text-white/80 mb-4 text-sm">{project.description}</p>
-                <div className="flex items-center text-accent font-semibold text-sm">
-                    <span>View Work</span>
-                    <ArrowRight className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-                </div>
-                </div>
-            </div>
-            </Card>
-        </Link>
+                </Card>
+            </Link>
+        </div>
     );
 };
 
 export default function ProjectsPage() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerPage = 6;
+  const totalPages = Math.ceil(allProjects.length / projectsPerPage);
+
+  const currentProjects = allProjects.slice(
+    (currentPage - 1) * projectsPerPage,
+    currentPage * projectsPerPage
+  );
+
+  const handlePageChange = (page: number) => {
+    if (page < 1 || page > totalPages) return;
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
@@ -99,13 +162,35 @@ export default function ProjectsPage() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {allProjects.map((project) => (
+                <div className="columns-1 md:columns-2 lg:columns-3 gap-8">
+                    {currentProjects.map((project) => (
                         <ProjectCard key={project.title} project={project} />
                     ))}
                 </div>
 
-                <div className="text-center mt-20">
+                <div className="flex justify-center items-center gap-4 mt-16">
+                    <Button
+                        variant="outline"
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1}
+                    >
+                        <ArrowLeft className="mr-2 h-4 w-4" />
+                        Previous
+                    </Button>
+                    <span className="text-sm text-muted-foreground">
+                        Page {currentPage} of {totalPages}
+                    </span>
+                    <Button
+                        variant="outline"
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                    >
+                        Next
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                </div>
+
+                <div className="text-center mt-12">
                     <Button asChild variant="outline">
                         <Link href="/">
                             <ArrowLeft className="mr-2 h-4 w-4" />
