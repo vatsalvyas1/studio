@@ -26,11 +26,11 @@ const projects = [
     hint: 'hackathon website'
   },
   {
-    title: 'HackIn',
-    description: 'A web hackathon hosting platform for organisers.',
-    image: 'https://placehold.co/800x600.png',
-    tags: ['Mobile App', 'Firebase'],
-    hint: 'mobile social network'
+    title: 'Darpan',
+    description: 'An online fund raising platform for people in need.',
+    image: 'https://img.freepik.com/premium-photo/helping-poor-old-women-children-from-charity-fun-flood-affected-starving-people_612827-93056.jpg',
+    tags: ['React', 'Headless CMS'],
+    hint: 'charity donation'
   },
   {
     title: 'Socio',
