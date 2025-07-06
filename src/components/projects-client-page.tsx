@@ -36,7 +36,7 @@ const allProjects = [
   {
     title: 'Socio',
     description: 'built for colleges to connect to college societies and alumni',
-    image: 'https://imgs.search.brave.com/0blqmLNm0ZilG0DdcBHBhCwaCohztVvi_U35vi6uOeA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzEwLzUzLzMwLzAx/LzM2MF9GXzEwNTMz/MDAxNTJfVTc4ZVNG/MmpWYWl1Mm42bUpm/b2V3blpKZGJTcHdt/SVMuanBn',
+    image: 'https://imgs.search.brave.com/d6WgShTtqdNMGxaug1evU4HJapv52kos8YoM7Zc4hJs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzM2NzE5Mjk3L3Iv/aWwvZWJmMWU3LzUw/MDczNTc5ODgvaWxf/NjAweDYwMC41MDA3/MzU3OTg4X2dkdDcu/anBn',
     tags: ['Web Design', 'Animation'],
     hint: 'college students network'
   },
@@ -309,3 +309,5 @@ export default function ProjectsClientPage() {
     </div>
   );
 }
+
+    

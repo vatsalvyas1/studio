@@ -35,7 +35,7 @@ const projects = [
   {
     title: 'Socio',
     description: 'Built for colleges to connect with societies and alumni.',
-    image: 'https://t4.ftcdn.net/jpg/10/53/30/01/360_F_1053300152_U78eSF2jVaiu2n6mJfoewnZJdbSpwmIV.jpg',
+    image: 'https://imgs.search.brave.com/d6WgShTtqdNMGxaug1evU4HJapv52kos8YoM7Zc4hJs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzM2NzE5Mjk3L3Iv/aWwvZWJmMWU3LzUw/MDczNTc5ODgvaWxf/NjAweDYwMC41MDA3/MzU3OTg4X2dkdDcu/anBn',
     tags: ['Web Design', 'Animation'],
     hint: 'college students network'
   },
@@ -160,3 +160,5 @@ const ProjectsSection = () => {
 };
 
 export default ProjectsSection;
+
+    
