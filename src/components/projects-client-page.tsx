@@ -42,7 +42,7 @@ const allProjects = [
   },
   {
     title: 'SyncSprint',
-    description: 'a platform to assist software developers to boos productivity',
+    description: 'a platform to assist software developers to boost productivity',
     image: 'https://imgs.search.brave.com/xh9XpijsLZj9zC3_2uXdKiJ_YHmXhBGqO8I1uB1CSu8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS82/NjQ0YzFiOThjYWU0/ZWEyNzUwMmFiNTcv/Njg1MDU2OTE2ZTA1/YzI4ZTY4YTE1NGM4/X0NhcGFjaXR5JTIw/T24tRGVtYW5kLnBu/Zw',
     tags: ['React Native', 'AI', 'Health'],
     hint: 'capacity on-demand'
