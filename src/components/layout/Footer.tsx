@@ -1,5 +1,22 @@
 import Link from 'next/link';
-import { Sparkles } from 'lucide-react';
+
+const LogoIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-6 w-6 text-accent"
+    >
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      <path d="m16.5 7.5 1.5-3 1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z"></path>
+    </svg>
+);
 
 const Footer = () => {
   return (
@@ -8,7 +25,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2 md:col-span-1 flex flex-col items-start space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Sparkles className="h-6 w-6 text-accent" />
+              <LogoIcon />
               <span className="font-headline text-xl font-bold">3AM Devs</span>
             </Link>
             <p className="text-sm text-muted-foreground">Crafting digital excellence.</p>
