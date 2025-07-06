@@ -11,7 +11,7 @@ import { useRef } from 'react';
 
 const projects = [
   {
-    title: 'QuantumLeap',
+    title: 'NexFix',
     description: 'A cutting-edge SaaS platform for data analytics, featuring a dynamic dashboard and real-time reporting.',
     image: 'https://placehold.co/1200x800.png',
     tags: ['Next.js', 'Tailwind', 'AI'],
@@ -25,14 +25,14 @@ const projects = [
     hint: 'hackathon website'
   },
   {
-    title: 'ConnectSpheres',
+    title: 'HackIn',
     description: 'A social networking app designed to connect professionals, with features like real-time chat and event management.',
     image: 'https://placehold.co/800x600.png',
     tags: ['Mobile App', 'Firebase'],
     hint: 'mobile social network'
   },
   {
-    title: 'ArtisanPortfolio',
+    title: 'Socio',
     description: 'A visually-driven portfolio website for a renowned photographer, focusing on minimalism and powerful imagery.',
     image: 'https://placehold.co/800x600.png',
     tags: ['Web Design', 'Animation'],

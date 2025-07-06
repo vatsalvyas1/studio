@@ -14,42 +14,42 @@ import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-mo
 
 const allProjects = [
   {
-    title: 'QuantumLeap',
+    title: 'NexFix',
     description: 'A cutting-edge SaaS platform for data analytics, featuring a dynamic dashboard and real-time reporting.',
     image: 'https://placehold.co/800x600.png',
     tags: ['Next.js', 'Tailwind', 'AI'],
     hint: 'saas dashboard analytics'
   },
   {
-    title: 'NovaMart',
+    title: 'Darpan',
     description: 'An e-commerce storefront with a custom headless CMS, optimized for performance and conversion.',
     image: 'https://placehold.co/800x1000.png',
     tags: ['React', 'Headless CMS'],
     hint: 'fashion ecommerce website'
   },
   {
-    title: 'ConnectSphere',
+    title: 'HackIn',
     description: 'A social networking app designed to connect professionals, with features like real-time chat and event management.',
     image: 'https://placehold.co/800x800.png',
     tags: ['Mobile App', 'Firebase'],
     hint: 'mobile social network'
   },
   {
-    title: 'ArtisanPortfolio',
+    title: 'Socio',
     description: 'A visually-driven portfolio website for a renowned photographer, focusing on minimalism and powerful imagery.',
     image: 'https://placehold.co/800x1200.png',
     tags: ['Web Design', 'Animation'],
     hint: 'minimalist photography portfolio'
   },
   {
-    title: 'HealthTrack',
+    title: 'SyncSprint',
     description: 'A mobile app for tracking fitness and health metrics, with personalized coaching.',
     image: 'https://placehold.co/800x700.png',
     tags: ['React Native', 'AI', 'Health'],
     hint: 'fitness app dashboard'
   },
   {
-    title: 'EcoFriendly Eats',
+    title: 'SneakersDekho',
     description: 'A platform for discovering and ordering from sustainable restaurants.',
     image: 'https://placehold.co/800x600.png',
     tags: ['Web App', 'Sustainability'],
@@ -210,7 +210,7 @@ export default function ProjectsPage() {
           className="absolute inset-0 z-0"
         >
           <div className="absolute inset-0 bg-background grid-background animate-grid-pan" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-transparent" />
           <div className="absolute inset-0 z-[1]">
               <motion.div style={{ x: shape1X, y: shape1Y }} className="absolute top-[10%] left-[15%] w-16 h-16 text-primary/30">
                   <Sparkles className="w-full h-full animate-blob animation-delay-2000" />
