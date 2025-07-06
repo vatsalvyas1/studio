@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -9,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const allProjects = [
   {
@@ -150,6 +152,24 @@ export default function ProjectsPage() {
     if (page < 1 || page > totalPages) return;
     setCurrentPage(page);
   };
+  
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -157,20 +177,41 @@ export default function ProjectsPage() {
       <main className="flex-1 pt-24">
         <section id="projects" className="py-20 lg:py-24">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-center mb-16"
+                >
                     <h1 className="font-headline text-4xl md:text-6xl font-bold">Our Work</h1>
                     <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
                         A selection of projects that we're proud of.
                     </p>
-                </div>
+                </motion.div>
 
-                <div className="columns-1 md:columns-2 lg:columns-3 gap-8">
-                    {currentProjects.map((project) => (
-                        <ProjectCard key={project.title} project={project} />
-                    ))}
-                </div>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                      key={currentPage}
+                      variants={containerVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit={{ opacity: 0 }}
+                      className="columns-1 md:columns-2 lg:columns-3 gap-8"
+                  >
+                      {currentProjects.map((project) => (
+                          <motion.div variants={itemVariants} key={project.title}>
+                              <ProjectCard project={project} />
+                          </motion.div>
+                      ))}
+                  </motion.div>
+                </AnimatePresence>
 
-                <div className="flex justify-center items-center gap-4 mt-16">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="flex justify-center items-center gap-4 mt-16"
+                >
                     <Button
                         variant="outline"
                         onClick={() => handlePageChange(currentPage - 1)}
@@ -190,16 +231,21 @@ export default function ProjectsPage() {
                         Next
                         <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
-                </div>
+                </motion.div>
 
-                <div className="text-center mt-12">
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="text-center mt-12"
+                >
                     <Button asChild variant="outline">
                         <Link href="/">
                             <ArrowLeft className="mr-2 h-4 w-4" />
                             Back to Home
                         </Link>
                     </Button>
-                </div>
+                </motion.div>
             </div>
         </section>
       </main>
