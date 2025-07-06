@@ -20,29 +20,31 @@ export function ThemeToggle() {
   }
 
   return (
-    <Button
-      variant="ghost"
-      size="icon"
-      onClick={toggleTheme}
-      className="hover:bg-transparent hover:text-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
-      aria-label="Toggle theme"
-    >
-      <AnimatePresence initial={false} mode="wait">
-        <motion.div
-          key={mounted ? resolvedTheme : 'initial'}
-          initial={{ scale: 0.5, opacity: 0, rotate: -180 }}
-          animate={{ scale: 1, opacity: 1, rotate: 0 }}
-          exit={{ scale: 0.5, opacity: 0, rotate: 180 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="flex items-center justify-center"
-        >
-          {mounted && resolvedTheme === "dark" ? (
-            <Moon className="h-[1.2rem] w-[1.2rem]" />
-          ) : (
-            <Sun className="h-[1.2rem] w-[1.2rem]" />
-          )}
-        </motion.div>
-      </AnimatePresence>
-    </Button>
+    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={toggleTheme}
+        className="hover:bg-transparent hover:text-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
+        aria-label="Toggle theme"
+      >
+        <AnimatePresence initial={false} mode="wait">
+          <motion.div
+            key={mounted ? resolvedTheme : 'initial'}
+            initial={{ scale: 0.5, opacity: 0, rotate: -180 }}
+            animate={{ scale: 1, opacity: 1, rotate: 0 }}
+            exit={{ scale: 0.5, opacity: 0, rotate: 180 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="flex items-center justify-center"
+          >
+            {mounted && resolvedTheme === "dark" ? (
+              <Moon className="h-[1.2rem] w-[1.2rem]" />
+            ) : (
+              <Sun className="h-[1.2rem] w-[1.2rem]" />
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </Button>
+    </motion.div>
   )
 }
