@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, ArrowLeft, Sparkles, Ghost, Heart } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Sparkles, Ghost, Heart, Star, Cat } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
@@ -159,6 +159,11 @@ export default function ProjectsPage() {
   const shape2Y = useTransform(mouseY, value => value * 50);
   const shape3X = useTransform(mouseX, value => value * -25);
   const shape3Y = useTransform(mouseY, value => value * 60);
+  const shape4X = useTransform(mouseX, value => value * -60);
+  const shape4Y = useTransform(mouseY, value => value * 40);
+  const shape5X = useTransform(mouseX, value => value * 50);
+  const shape5Y = useTransform(mouseY, value => value * -70);
+
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -215,6 +220,12 @@ export default function ProjectsPage() {
               </motion.div>
               <motion.div style={{ x: shape3X, y: shape3Y }} className="absolute top-[20%] right-[20%] w-12 h-12 text-accent/30">
                   <Heart className="w-full h-full animate-blob3 animation-delay-4000" />
+              </motion.div>
+              <motion.div style={{ x: shape4X, y: shape4Y }} className="absolute bottom-[20%] left-[25%] w-14 h-14 text-primary/20">
+                  <Star className="w-full h-full animate-blob" />
+              </motion.div>
+              <motion.div style={{ x: shape5X, y: shape5Y }} className="absolute top-[60%] right-[15%] w-16 h-16 text-accent/20">
+                  <Cat className="w-full h-full animate-blob2 animation-delay-3000" />
               </motion.div>
           </div>
         </div>
