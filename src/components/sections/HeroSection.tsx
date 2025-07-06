@@ -170,7 +170,7 @@ const HeroSection = () => {
           initial="hidden"
           animate="visible"
           style={{ opacity: contentOpacity, filter: contentBlur }}
-          className="flex flex-col items-center mt-24"
+          className="flex flex-col items-center mt-36"
         >
           <motion.h1 
             variants={itemVariants}
