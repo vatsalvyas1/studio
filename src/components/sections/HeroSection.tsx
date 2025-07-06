@@ -194,7 +194,7 @@ const HeroSection = () => {
               <Link href="#projects">View Our Work</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="#contact">Get a Quote</Link>
+              <Link href="#contact">Book Free Trial</Link>
             </Button>
           </motion.div>
 
