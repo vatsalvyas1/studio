@@ -1,17 +1,16 @@
-// This is a new file
 "use client";
 
 import { cn } from "@/lib/utils";
 
 const logos = [
-  { name: 'Stripe', logo: () => <p className="font-bold text-2xl font-headline">Stripe</p> },
-  { name: 'Framer', logo: () => <p className="font-bold text-2xl font-headline">Framer</p> },
-  { name: 'Vercel', logo: () => <svg height="26" viewBox="0 0 75 65" fill="currentColor"><path d="M37.59.25l36.95 64H.64l36.95-64z"></path></svg> },
-  { name: 'Linear', logo: () => <p className="font-bold text-2xl font-headline">Linear</p> },
-  { name: 'Raycast', logo: () => <p className="font-bold text-2xl font-headline">Raycast</p> },
-  { name: 'Notion', logo: () => <p className="font-bold text-2xl font-headline">Notion</p> },
-  { name: 'Spline', logo: () => <p className="font-bold text-2xl font-headline">Spline</p> },
-  { name: 'Loom', logo: () => <p className="font-bold text-2xl font-headline">Loom</p> },
+  { name: 'EXL', logo: () => <p className="font-bold text-2xl font-headline">EXL</p> },
+  { name: 'NexFix', logo: () => <p className="font-bold text-2xl font-headline">NexFix</p> },
+  { name: 'Mangla Hardwares', logo: () => <p className="font-bold text-2xl font-headline">Mangla Hardwares</p> },
+  { name: 'Shagun Sweets', logo: () => <p className="font-bold text-2xl font-headline">Shagun Sweets</p> },
+  { name: 'EXL', logo: () => <p className="font-bold text-2xl font-headline">EXL</p> },
+  { name: 'NexFix', logo: () => <p className="font-bold text-2xl font-headline">NexFix</p> },
+  { name: 'Mangla Hardwares', logo: () => <p className="font-bold text-2xl font-headline">Mangla Hardwares</p> },
+  { name: 'Shagun Sweets', logo: () => <p className="font-bold text-2xl font-headline">Shagun Sweets</p> },
 ];
 
 export const InfiniteLogoScroll = () => {
