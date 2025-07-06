@@ -57,42 +57,42 @@ const allProjects = [
   {
     title: 'StellarDocs',
     description: 'A collaborative documentation platform for technical teams with version control.',
-    image: 'https://placehold.co/800x900.png',
+    image: 'https://imgs.search.brave.com/VwPMZCczX_2obfNlKS6wD9EPewR84F2PZZ2gFaHqU4k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDQ4NDc0/MDkuanBn',
     tags: ['TypeScript', 'Web Sockets'],
     hint: 'documentation website'
   },
   {
     title: 'Momentum',
     description: 'A sleek and simple habit-tracking application to help users build better routines.',
-    image: 'https://placehold.co/800x800.png',
+    image: 'https://imgs.search.brave.com/mewiIzkTpW9V5Qpi_slglnjEhQ32sUx_6paTO0Ssjhk/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/ZHJpYmJibGUuY29t/L3VzZXJ1cGxvYWQv/ODU2OTU4OS9maWxl/L29yaWdpbmFsLThi/NzBlY2NlYmUwNzBm/MGUwOWEyODU4ZTA1/MDNkMWFkLmpwZz9m/b3JtYXQ9d2VicCZy/ZXNpemU9NDAweDMw/MCZ2ZXJ0aWNhbD1j/ZW50ZXI',
     tags: ['Productivity', 'Mobile App'],
     hint: 'habit tracker app'
   },
   {
     title: 'Wanderlust',
     description: 'A travel planning app that uses AI to suggest itineraries based on user preferences.',
-    image: 'https://placehold.co/800x1100.png',
+    image: 'https://imgs.search.brave.com/pWQACQMv37Nba3qb5-R8yR2vs2C15h9F-Vzura-yZIY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/ZHJpYmJibGUuY29t/L3VzZXJ1cGxvYWQv/NDMxNDI0MDQvZmls/ZS9vcmlnaW5hbC01/ZTQ5ZTZlNGVkNDRi/YTM1ZmIyY2ZlNzU4/NmNiNjE5OC5qcGc_/Zm9ybWF0PXdlYnAm/cmVzaXplPTQwMHgz/MDAmdmVydGljYWw9/Y2VudGVy',
     tags: ['AI', 'Travel', 'Web App'],
     hint: 'travel planning interface'
   },
   {
     title: 'CodeFlow',
     description: 'An online IDE for front-end developers with real-time collaboration features.',
-    image: 'https://placehold.co/800x600.png',
+    image: 'https://imgs.search.brave.com/Xw_Bi_FbMyaWPo1mYfEbKkpc3_2aN0Nk9BqiuCTCekQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jbXMu/amliZWNkbi5jb20v/cHJvZC9naXRodWJp/bmMtY2FyZWVycy9h/c3NldHMvTFAtU0tV/LUQ0LTEtSU1HLWVu/LXVzLTE2OTk0MjUx/NDA5OTAuanBn',
     tags: ['Developer Tools', 'SaaS'],
     hint: 'code editor interface'
   },
   {
     title: 'GourmetGo',
     description: 'A premium meal-kit delivery service website with recipe tutorials.',
-    image: 'https://placehold.co/800x700.png',
+    image: 'https://imgs.search.brave.com/mssxScYuV9k5T_BcOI9Ht2um8sJ7yIh4Tsl624rsFOM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/dGFzdGVvZmhvbWUu/Y29tL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDI0LzEwL1RoZS02/LUJlc3QtTWVhbC1E/ZWxpdmVyeS1TZXJ2/aWNlcy1mb3ItRmFt/aWxpZXNfVE9IX1BU/VF9NRUFMX0tJVFNf/MTAwMjI0X0VGX0ds/dXRlbl9GcmVlLmpw/Zw',
     tags: ['E-commerce', 'Food'],
     hint: 'meal kit website'
   },
   {
     title: 'Zenith CRM',
     description: 'A powerful CRM for sales teams to manage leads and customer relationships.',
-    image: 'https://placehold.co/800x900.png',
+    image: 'https://imgs.search.brave.com/mSugOGT2vezI3NRRfsNiTo-bZX_HtPwNBayVBgZNxG0/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/b25lcGFnZWNybS5j/b20vd3AtY29udGVu/dC91cGxvYWRzL01v/YmlsZTZfaW1hZ2Uu/cG5n',
     tags: ['SaaS', 'Business'],
     hint: 'crm dashboard'
   }
