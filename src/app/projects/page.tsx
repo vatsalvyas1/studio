@@ -15,7 +15,7 @@ import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-mo
 const allProjects = [
   {
     title: 'NexFix',
-    description: 'A cutting-edge SaaS platform for data analytics, featuring a dynamic dashboard and real-time reporting.',
+    description: 'A one stop solution for hardware, paints, and tools online.',
     image: 'https://placehold.co/800x600.png',
     tags: ['Next.js', 'Tailwind', 'AI'],
     hint: 'saas dashboard analytics'
@@ -29,28 +29,28 @@ const allProjects = [
   },
   {
     title: 'HackIn',
-    description: 'A social networking app designed to connect professionals, with features like real-time chat and event management.',
+    description: 'A web hackathon hosting platform for organisers.',
     image: 'https://placehold.co/800x800.png',
     tags: ['Mobile App', 'Firebase'],
     hint: 'mobile social network'
   },
   {
     title: 'Socio',
-    description: 'A visually-driven portfolio website for a renowned photographer, focusing on minimalism and powerful imagery.',
+    description: 'Built for colleges to connect with societies and alumni.',
     image: 'https://placehold.co/800x1200.png',
     tags: ['Web Design', 'Animation'],
     hint: 'minimalist photography portfolio'
   },
   {
     title: 'SyncSprint',
-    description: 'A mobile app for tracking fitness and health metrics, with personalized coaching.',
+    description: 'A platform to assist software developers to boost productivity.',
     image: 'https://placehold.co/800x700.png',
     tags: ['React Native', 'AI', 'Health'],
     hint: 'fitness app dashboard'
   },
   {
     title: 'SneakersDekho',
-    description: 'A platform for discovering and ordering from sustainable restaurants.',
+    description: 'A display website for a shoe store.',
     image: 'https://placehold.co/800x600.png',
     tags: ['Web App', 'Sustainability'],
     hint: 'food delivery app'

@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -12,7 +13,7 @@ import { useRef } from 'react';
 const projects = [
   {
     title: 'NexFix',
-    description: 'A cutting-edge SaaS platform for data analytics, featuring a dynamic dashboard and real-time reporting.',
+    description: 'A one stop solution for hardware, paints, and tools online.',
     image: 'https://placehold.co/1200x800.png',
     tags: ['Next.js', 'Tailwind', 'AI'],
     hint: 'saas dashboard analytics'
@@ -26,14 +27,14 @@ const projects = [
   },
   {
     title: 'HackIn',
-    description: 'A social networking app designed to connect professionals, with features like real-time chat and event management.',
+    description: 'A web hackathon hosting platform for organisers.',
     image: 'https://placehold.co/800x600.png',
     tags: ['Mobile App', 'Firebase'],
     hint: 'mobile social network'
   },
   {
     title: 'Socio',
-    description: 'A visually-driven portfolio website for a renowned photographer, focusing on minimalism and powerful imagery.',
+    description: 'Built for colleges to connect with societies and alumni.',
     image: 'https://placehold.co/800x600.png',
     tags: ['Web Design', 'Animation'],
     hint: 'minimalist photography portfolio'
