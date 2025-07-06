@@ -25,7 +25,7 @@ const projects = [
     hint: 'hackathon website'
   },
   {
-    title: 'ConnectSphere',
+    title: 'ConnectSpheres',
     description: 'A social networking app designed to connect professionals, with features like real-time chat and event management.',
     image: 'https://placehold.co/800x600.png',
     tags: ['Mobile App', 'Firebase'],
