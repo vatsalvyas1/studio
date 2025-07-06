@@ -15,9 +15,9 @@ const allProjects = [
   {
     title: 'NexFix',
     description: 'A one stop solution for hardware, paints, and tools online.',
-    image: 'https://placehold.co/800x600.png',
+    image: 'https://img.freepik.com/premium-photo/man-replacing-products-store_101945-1918.jpg',
     tags: ['Next.js', 'Tailwind', 'AI'],
-    hint: 'saas dashboard analytics'
+    hint: 'hardware store'
   },
   {
     title: 'Darpan',
