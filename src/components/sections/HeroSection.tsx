@@ -193,7 +193,7 @@ const HeroSection = () => {
             <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/20">
               <Link href="#projects">View Our Work</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="gradient" asChild>
               <Link href="/#contact">Book Free Trial</Link>
             </Button>
           </motion.div>
