@@ -1,7 +1,6 @@
-
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -138,6 +137,10 @@ export default function ProjectsPage() {
   const projectsPerPage = 6;
   const totalPages = Math.ceil(allProjects.length / projectsPerPage);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
+
   const currentProjects = allProjects.slice(
     (currentPage - 1) * projectsPerPage,
     currentPage * projectsPerPage
@@ -146,7 +149,6 @@ export default function ProjectsPage() {
   const handlePageChange = (page: number) => {
     if (page < 1 || page > totalPages) return;
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
