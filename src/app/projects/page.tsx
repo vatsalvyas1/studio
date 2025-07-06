@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, ArrowLeft } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Sparkles, Ghost, Heart } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
@@ -134,27 +134,6 @@ const ProjectCard = ({ project }: { project: typeof allProjects[0] }) => {
     );
 };
 
-const RocketIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M15.5834 8.41663L18.4118 5.58819" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M11.25 12.75L12.75 11.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M8.41663 15.5834L5.58819 18.4118" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M12.0001 2.08337C12.0001 2.08337 6.25008 6.25004 2.08341 12.0001C-2.08325 17.7501 6.25008 22.0834 12.0001 17.9167C17.7501 13.75 21.9167 7.91671 12.0001 2.08337Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-);
-
-const HexagonIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M21 8.5V15.5L12 20.5L3 15.5V8.5L12 3.5L21 8.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-);
-
-const TriangleIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M12 3L2 21H22L12 3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-);
-
 export default function ProjectsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 6;
@@ -229,13 +208,13 @@ export default function ProjectsPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
           <div className="absolute inset-0 z-[1]">
               <motion.div style={{ x: shape1X, y: shape1Y }} className="absolute top-[10%] left-[15%] w-16 h-16 text-primary/30">
-                  <TriangleIcon className="w-full h-full animate-blob animation-delay-2000" />
+                  <Sparkles className="w-full h-full animate-blob animation-delay-2000" />
               </motion.div>
-              <motion.div style={{ x: shape2X, y: shape2Y }} className="absolute bottom-[10%] right-[10%] w-20 h-20 text-accent/40 transform -rotate-45">
-                  <RocketIcon className="w-full h-full animate-blob2" />
+              <motion.div style={{ x: shape2X, y: shape2Y }} className="absolute bottom-[10%] right-[10%] w-20 h-20 text-accent/40">
+                  <Ghost className="w-full h-full animate-blob2" />
               </motion.div>
               <motion.div style={{ x: shape3X, y: shape3Y }} className="absolute top-[20%] right-[20%] w-12 h-12 text-accent/30">
-                  <HexagonIcon className="w-full h-full animate-blob3 animation-delay-4000 rotate-45" />
+                  <Heart className="w-full h-full animate-blob3 animation-delay-4000" />
               </motion.div>
           </div>
         </div>
