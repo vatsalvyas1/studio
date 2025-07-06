@@ -18,11 +18,11 @@ const projects = [
     hint: 'saas dashboard analytics'
   },
   {
-    title: 'NovaMart',
-    description: 'An e-commerce storefront with a custom headless CMS, optimized for performance and conversion.',
-    image: 'https://placehold.co/800x600.png',
-    tags: ['React', 'Headless CMS'],
-    hint: 'fashion ecommerce website'
+    title: 'HackiN',
+    description: 'A one-stop solution for all the hackathons aiming to connect hackers worldwide.',
+    image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751794207/hackIn_mskonw.png',
+    tags: ['MERN Stack', 'Tailwind', 'Sockets'],
+    hint: 'hackathon website'
   },
   {
     title: 'ConnectSphere',
