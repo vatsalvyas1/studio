@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 
 const allProjects = [
   {
@@ -134,10 +134,52 @@ const ProjectCard = ({ project }: { project: typeof allProjects[0] }) => {
     );
 };
 
+const RocketIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M15.5834 8.41663L18.4118 5.58819" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M11.25 12.75L12.75 11.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M8.41663 15.5834L5.58819 18.4118" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12.0001 2.08337C12.0001 2.08337 6.25008 6.25004 2.08341 12.0001C-2.08325 17.7501 6.25008 22.0834 12.0001 17.9167C17.7501 13.75 21.9167 7.91671 12.0001 2.08337Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+);
+
+const HexagonIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M21 8.5V15.5L12 20.5L3 15.5V8.5L12 3.5L21 8.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+);
+
+const TriangleIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M12 3L2 21H22L12 3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+
 export default function ProjectsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 6;
   const totalPages = Math.ceil(allProjects.length / projectsPerPage);
+  
+  const targetRef = useRef<HTMLDivElement>(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (targetRef.current) {
+      const { left, top, width, height } = targetRef.current.getBoundingClientRect();
+      const x = event.clientX - left;
+      const y = event.clientY - top;
+      mouseX.set(x / width - 0.5);
+      mouseY.set(y / height - 0.5);
+    }
+  };
+
+  const shape1X = useTransform(mouseX, value => value * -40);
+  const shape1Y = useTransform(mouseY, value => value * -20);
+  const shape2X = useTransform(mouseX, value => value * 70);
+  const shape2Y = useTransform(mouseY, value => value * 50);
+  const shape3X = useTransform(mouseX, value => value * -25);
+  const shape3Y = useTransform(mouseY, value => value * 60);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -174,80 +216,104 @@ export default function ProjectsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
-      <main className="flex-1 pt-24">
-        <section id="projects" className="py-20 lg:py-24">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="text-center mb-16"
-                >
-                    <h1 className="font-headline text-4xl md:text-6xl font-bold">Our Work</h1>
-                    <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-                        A selection of projects that we're proud of.
-                    </p>
-                </motion.div>
-
-                <AnimatePresence mode="wait">
+      <main 
+        ref={targetRef} 
+        onMouseMove={handleMouseMove}
+        className="flex-1 pt-24 relative overflow-hidden"
+      >
+        <div 
+          aria-hidden="true"
+          className="absolute inset-0 z-0"
+        >
+          <div className="absolute inset-0 bg-background grid-background animate-grid-pan" />
+          <div className="absolute inset-0 z-[1]">
+              <motion.div style={{ x: shape1X, y: shape1Y }} className="absolute top-[10%] left-[15%] w-16 h-16 text-primary/30">
+                  <TriangleIcon className="w-full h-full animate-blob animation-delay-2000" />
+              </motion.div>
+              <motion.div style={{ x: shape2X, y: shape2Y }} className="absolute bottom-[10%] right-[10%] w-20 h-20 text-accent/40 transform -rotate-45">
+                  <RocketIcon className="w-full h-full animate-blob2" />
+              </motion.div>
+              <motion.div style={{ x: shape3X, y: shape3Y }} className="absolute top-[20%] right-[20%] w-12 h-12 text-accent/30">
+                  <HexagonIcon className="w-full h-full animate-blob3 animation-delay-4000 rotate-45" />
+              </motion.div>
+          </div>
+        </div>
+        
+        <div className="relative z-10">
+          <section id="projects" className="py-20 lg:py-24">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                   <motion.div
-                      key={currentPage}
-                      variants={containerVariants}
-                      initial="hidden"
-                      animate="visible"
-                      exit={{ opacity: 0 }}
-                      className="columns-1 md:columns-2 lg:columns-3 gap-8"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-center mb-16"
                   >
-                      {currentProjects.map((project) => (
-                          <motion.div variants={itemVariants} key={project.title}>
-                              <ProjectCard project={project} />
-                          </motion.div>
-                      ))}
+                      <h1 className="font-headline text-4xl md:text-6xl font-bold">Our Work</h1>
+                      <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+                          A selection of projects that we're proud of.
+                      </p>
                   </motion.div>
-                </AnimatePresence>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="flex justify-center items-center gap-4 mt-16"
-                >
-                    <Button
-                        variant="outline"
-                        onClick={() => handlePageChange(currentPage - 1)}
-                        disabled={currentPage === 1}
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                        key={currentPage}
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit={{ opacity: 0 }}
+                        className="columns-1 md:columns-2 lg:columns-3 gap-8"
                     >
-                        <ArrowLeft className="mr-2 h-4 w-4" />
-                        Previous
-                    </Button>
-                    <span className="text-sm text-muted-foreground">
-                        Page {currentPage} of {totalPages}
-                    </span>
-                    <Button
-                        variant="outline"
-                        onClick={() => handlePageChange(currentPage + 1)}
-                        disabled={currentPage === totalPages}
-                    >
-                        Next
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                </motion.div>
+                        {currentProjects.map((project) => (
+                            <motion.div variants={itemVariants} key={project.title}>
+                                <ProjectCard project={project} />
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                  </AnimatePresence>
 
-                <motion.div 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  className="text-center mt-12"
-                >
-                    <Button asChild variant="outline">
-                        <Link href="/">
-                            <ArrowLeft className="mr-2 h-4 w-4" />
-                            Back to Home
-                        </Link>
-                    </Button>
-                </motion.div>
-            </div>
-        </section>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="flex justify-center items-center gap-4 mt-16"
+                  >
+                      <Button
+                          variant="outline"
+                          onClick={() => handlePageChange(currentPage - 1)}
+                          disabled={currentPage === 1}
+                      >
+                          <ArrowLeft className="mr-2 h-4 w-4" />
+                          Previous
+                      </Button>
+                      <span className="text-sm text-muted-foreground">
+                          Page {currentPage} of {totalPages}
+                      </span>
+                      <Button
+                          variant="outline"
+                          onClick={() => handlePageChange(currentPage + 1)}
+                          disabled={currentPage === totalPages}
+                      >
+                          Next
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                  </motion.div>
+
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="text-center mt-12"
+                  >
+                      <Button asChild variant="outline">
+                          <Link href="/">
+                              <ArrowLeft className="mr-2 h-4 w-4" />
+                              Back to Home
+                          </Link>
+                      </Button>
+                  </motion.div>
+              </div>
+          </section>
+        </div>
       </main>
       <Footer />
     </div>
