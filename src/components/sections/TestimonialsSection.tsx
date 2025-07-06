@@ -16,7 +16,7 @@ const testimonials = [
   {
     name: 'Rajat Mangla',
     title: 'Owner, Mangla Hardwares',
-    avatar: 'https://placehold.co/100x100.png',
+    avatar: 'https://media.licdn.com/dms/image/v2/D5603AQE-Rtw8oK7RLA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731205262909?e=1757548800&v=beta&t=IT0iQZJkT7gilhpfsMSgx43i5vAkGB2AGp4UL-TZE34',
     testimonial: "Taking our decades-old hardware business online was a big step, but 3AM Devs made it seamless. They built us a robust e-commerce platform that's easy for our customers to use and for us to manage.",
     hint: 'portrait man business'
   },
