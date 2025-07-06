@@ -50,9 +50,9 @@ const allProjects = [
   {
     title: 'SneakersDekho',
     description: 'a display website for a shoe store',
-    image: 'https://placehold.co/800x600.png',
+    image: 'https://imgs.search.brave.com/mx2glfQG96nj4MRekHlnCBmy8DXxyji0-y7MUzFJqZE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bXltYWxsYm94LmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/NC8xMi8xMC1iZXN0/LXVzYS13ZWJzaXRl/cy10by1idXktc25l/YWtlcnMtb25saW5l/LTIwMjQtbXltYWxs/Ym94LmpwZw',
     tags: ['Web App', 'Sustainability'],
-    hint: 'shoe website'
+    hint: 'shoe website sneakers'
   },
   {
     title: 'StellarDocs',
