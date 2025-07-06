@@ -50,7 +50,7 @@ const allProjects = [
   {
     title: 'SneakersDekho',
     description: 'A display website for a shoe store.',
-    image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751794211/sneakers-dekho.png',
+    image: 'https://placehold.co/800x600.png',
     tags: ['Web App', 'Sustainability'],
     hint: 'shoe website'
   },
