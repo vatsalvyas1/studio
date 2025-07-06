@@ -30,7 +30,7 @@ const testimonials = [
   {
     name: 'Ritesh Jha',
     title: 'Software Developer',
-    avatar: 'https://placehold.co/100x100.png',
+    avatar: 'https://media.licdn.com/dms/image/v2/D5603AQH0LMmV_9wVRQ/profile-displayphoto-scale_400_400/B56ZfJjU7DHUAg-/0/1751433172299?e=1757548800&v=beta&t=72kKsUv-zbs06F0nN8Cm1BYkyvkpleP_G485_oGVB5g',
     testimonial: "Collaborating with 3AM Devs was a fantastic experience. Their code is clean, their development process is agile and transparent, and they're true experts in modern web technologies.",
     hint: 'portrait developer'
   },
