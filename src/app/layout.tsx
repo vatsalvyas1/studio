@@ -1,28 +1,94 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import StructuredData from "@/components/StructuredData";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 
+const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://3amdevs.com"),
   title: {
-    default: "3AM Devs",
-    template: "%s | 3AM Devs",
+    template: "%s | 3AM Devs - Web Development & Digital Marketing Agency",
+    default: "3AM Devs - Premier Web Development & Digital Marketing Agency",
   },
   description:
-    "We build beautiful, high-performance websites and applications for businesses of all sizes.",
-  icons: {
-    icon: "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%237a42f4'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M12%202v8'/%3E%3Cpath%20d='m4.93%2010.93%201.41%201.41'/%3E%3Cpath%20d='M2%2018h2'/%3E%3Cpath%20d='M20%2018h2'/%3E%3Cpath%20d='m17.66%2010.93%201.41-1.41'/%3E%3Cpath%20d='M18%2022H6'/%3E%3Cpath%20d='M16%2018a4%204%200%200%200-8%200'/%3E%3C/svg%3E",
+    "Professional web development and digital marketing agency. Custom website building, Next.js development, SEO services, and comprehensive digital solutions. Contact 3AM Devs today!",
+  keywords: [
+    "3am devs",
+    "3am dev",
+    "web development agency",
+    "digital marketing agency",
+    "website building agency",
+    "custom website development",
+    "next.js development",
+    "professional web developers",
+    "digital marketing services",
+    "SEO services",
+    "react development",
+    "javascript developers",
+    "website builders",
+    "online marketing company",
+    "web development services",
+  ],
+  authors: [{ name: "3AM Devs", url: "https://3amdevs.com" }],
+  creator: "3AM Devs",
+  publisher: "3AM Devs",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    title: "3AM Devs - Premier Web Development & Digital Marketing Agency",
+    description:
+      "Professional web development and digital marketing services. Custom websites, Next.js development, and comprehensive digital solutions.",
+    url: "https://3amdevs.com",
+    siteName: "3AM Devs",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "3AM Devs - Web Development & Digital Marketing Agency",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://3amdevs.com",
+  },
+  verification: {
+    google: "OghXUAbv-wovzpKQkICb6uK4Puix3McYbSm1gAMuED0",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <StructuredData />
+        <link rel="canonical" href="https://3amdevs.com" />
+        <meta name="geo.region" content="IN" />
+        <meta name="geo.placename" content="New Delhi" />
+        <meta name="ICBM" content="28.6139, 77.2090" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -57,12 +123,6 @@ export default function RootLayout({
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://3amdevs.com/" />
         <meta property="og:image" content="/favicon.ico" />
-        {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="3AM Devs - Beautiful, High-Performance Websites & Apps"
-        />
         <meta
           name="twitter:description"
           content="We build beautiful, high-performance websites and applications for businesses of all sizes."
@@ -81,7 +141,7 @@ export default function RootLayout({
               description:
                 "We build beautiful, high-performance websites and applications for businesses of all sizes.",
               sameAs: [
-                "https://www.linkedin.com/company/3amdevs",
+                "https://www.linkedin.com/company/3am-devs",
                 "https://twitter.com/3amdevs",
               ],
               contactPoint: [
@@ -96,7 +156,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-body antialiased">
+      <body className={inter.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
