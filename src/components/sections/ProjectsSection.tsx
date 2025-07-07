@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -11,11 +12,18 @@ import { useRef } from 'react';
 
 const projects = [
   {
-    title: 'QuantumLeap',
-    description: 'A cutting-edge SaaS platform for data analytics, featuring a dynamic dashboard and real-time reporting.',
-    image: 'https://placehold.co/1200x800.png',
+    title: 'NexFix',
+    description: 'A one stop solution for hardware, paints, and tools online.',
+    image: 'https://imgs.search.brave.com/HXLrh9uZBBuKHTw1agKCx4i1JvQnBKShZxhmULZf5Bc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAyMi8w/MS8yOC8xMi8xNy9k/ZWxpdmVyeS02OTc0/NTA2XzY0MC5qcGc',
     tags: ['Next.js', 'Tailwind', 'AI'],
-    hint: 'saas dashboard analytics'
+    hint: 'delivery person'
+  },
+  {
+    title: 'Darpan',
+    description: 'An online fund raising platform for people in need.',
+    image: 'https://img.freepik.com/premium-photo/helping-poor-old-women-children-from-charity-fun-flood-affected-starving-people_612827-93056.jpg',
+    tags: ['React', 'Headless CMS'],
+    hint: 'charity donation'
   },
   {
     title: 'HackiN',
@@ -25,18 +33,11 @@ const projects = [
     hint: 'hackathon website'
   },
   {
-    title: 'ConnectSpheres',
-    description: 'A social networking app designed to connect professionals, with features like real-time chat and event management.',
-    image: 'https://placehold.co/800x600.png',
-    tags: ['Mobile App', 'Firebase'],
-    hint: 'mobile social network'
-  },
-  {
-    title: 'ArtisanPortfolio',
-    description: 'A visually-driven portfolio website for a renowned photographer, focusing on minimalism and powerful imagery.',
-    image: 'https://placehold.co/800x600.png',
+    title: 'Socio',
+    description: 'Built for colleges to connect with societies and alumni.',
+    image: 'https://imgs.search.brave.com/d6WgShTtqdNMGxaug1evU4HJapv52kos8YoM7Zc4hJs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzM2NzE5Mjk3L3Iv/aWwvZWJmMWU3LzUw/MDczNTc5ODgvaWxf/NjAweDYwMC41MDA3/MzU3OTg4X2dkdDcu/anBn',
     tags: ['Web Design', 'Animation'],
-    hint: 'minimalist photography portfolio'
+    hint: 'college students network'
   },
 ];
 
@@ -159,3 +160,5 @@ const ProjectsSection = () => {
 };
 
 export default ProjectsSection;
+
+    

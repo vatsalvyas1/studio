@@ -69,8 +69,8 @@ const Header = () => {
             {/* Right side actions */}
             <div className="flex items-center gap-1">
               <ThemeToggle />
-              <Button asChild className="rounded-full text-xs h-8 bg-primary hover:bg-primary/90 text-primary-foreground hidden sm:flex">
-                <Link href="/#contact">Get a Quote</Link>
+              <Button asChild variant="gradient" className="rounded-full text-xs h-8 hidden sm:flex">
+                <Link href="/#contact">Book Free Trial</Link>
               </Button>
               <div className="md:hidden">
                 <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(true)} className="rounded-full">
@@ -120,8 +120,8 @@ const Header = () => {
                     {link.label}
                   </Link>
                 ))}
-                 <Button asChild size="lg" className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => setIsMenuOpen(false)}>
-                    <Link href="/#contact">Get a Quote</Link>
+                 <Button asChild variant="gradient" size="lg" className="mt-4" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/#contact">Book Free Trial</Link>
                  </Button>
               </nav>
             </motion.div>

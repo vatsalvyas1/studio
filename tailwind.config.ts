@@ -128,7 +128,7 @@ export default {
         'blob2': 'blob2 18s infinite',
         'blob3': 'blob3 20s infinite ease-in-out',
         'blob4': 'blob4 12s infinite',
-        'infinite-scroll': 'infinite-scroll 40s linear infinite',
+        'infinite-scroll': 'infinite-scroll 80s linear infinite',
         'grid-pan': 'grid-pan 3s linear infinite',
       },
     },

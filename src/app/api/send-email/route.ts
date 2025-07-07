@@ -1,5 +1,9 @@
-import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
+import ContactFormEmail from '@/components/emails/contact-form-email';
+import * as React from 'react';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
@@ -33,13 +37,13 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail(mailOptions);
 
     return NextResponse.json(
-      { message: "Email sent successfully" },
+      { message: 'Email sent successfully', data },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error('Error processing request:', error);
     return NextResponse.json(
-      { error: "Failed to send email" },
+      { error: 'Failed to process request' },
       { status: 500 }
     );
   }
