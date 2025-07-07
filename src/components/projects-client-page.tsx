@@ -15,9 +15,9 @@ const allProjects = [
   {
     title: 'NexFix',
     description: 'a one stop solution for hardware, paints, tool online',
-    image: 'https://imgs.search.brave.com/HXLrh9uZBBuKHTw1agKCx4i1JvQnBKShZxhmULZf5Bc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAyMi8w/MS8yOC8xMi8xNy9k/ZWxpdmVyeS02OTc0/NTA2XzY0MC5qcGc',
-    tags: ['Next.js', 'Tailwind', 'AI'],
-    hint: 'delivery person'
+    image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751864524/nexfix_jdvwh3.png',
+    tags: ['MERN Stack', 'Cashfree API'],
+    hint: 'hardware ecommerce website'
   },
   {
     title: 'Darpan',
@@ -30,21 +30,21 @@ const allProjects = [
     title: 'HackIn',
     description: 'a web hackathon hosting platform for organisers',
     image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751794207/hackIn_mskonw.png',
-    tags: ['Mobile App', 'Firebase'],
+    tags: ['MERN Stack', 'Tailwind', 'Sockets'],
     hint: 'hackathon website'
   },
   {
-    title: 'Socio',
-    description: 'built for colleges to connect to college societies and alumni',
-    image: 'https://imgs.search.brave.com/d6WgShTtqdNMGxaug1evU4HJapv52kos8YoM7Zc4hJs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzM2NzE5Mjk3L3Iv/aWwvZWJmMWU3LzUw/MDczNTc5ODgvaWxf/NjAweDYwMC41MDA3/MzU3OTg4X2dkdDcu/anBn',
-    tags: ['Web Design', 'Animation'],
-    hint: 'college students network'
+    title: 'VolunTier',
+    description: 'volunTier is a platform dedicated to connecting volunteers with NGOs',
+    image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751865934/voluntier_lkywwk.png',
+    tags: ['React', 'Firebase Auth', 'Firestore DB'],
+    hint: 'ngo volunteer platform'
   },
   {
-    title: 'SyncSprint',
+    title: 'SprintSync',
     description: 'a platform to assist software developers to boost productivity',
-    image: 'https://imgs.search.brave.com/xh9XpijsLZj9zC3_2uXdKiJ_YHmXhBGqO8I1uB1CSu8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS82/NjQ0YzFiOThjYWU0/ZWEyNzUwMmFiNTcv/Njg1MDU2OTE2ZTA1/YzI4ZTY4YTE1NGM4/X0NhcGFjaXR5JTIw/T24tRGVtYW5kLnBu/Zw',
-    tags: ['React Native', 'AI', 'Health'],
+    image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751866252/sprintsync_rkptrl.jpg',
+    tags: ['MERN Stack', 'Productivity Tools'],
     hint: 'capacity on-demand'
   },
   {

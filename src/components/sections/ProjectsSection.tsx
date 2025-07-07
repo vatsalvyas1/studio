@@ -12,18 +12,18 @@ import { useRef } from 'react';
 
 const projects = [
   {
-    title: 'NexFix',
-    description: 'A one stop solution for hardware, paints, and tools online.',
-    image: 'https://imgs.search.brave.com/HXLrh9uZBBuKHTw1agKCx4i1JvQnBKShZxhmULZf5Bc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAyMi8w/MS8yOC8xMi8xNy9k/ZWxpdmVyeS02OTc0/NTA2XzY0MC5qcGc',
-    tags: ['Next.js', 'Tailwind', 'AI'],
-    hint: 'delivery person'
+    title: 'VolunTier',
+    description: 'volunTier is a platform dedicated to connecting volunteers with NGOs.',
+    image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751865257/voluntier_qpwi0g.jpg',
+    tags: ['React', 'Firebase Auth', 'Firestore DB'],
+    hint: 'ngo volunteer platform'
   },
   {
-    title: 'Darpan',
-    description: 'An online fund raising platform for people in need.',
-    image: 'https://img.freepik.com/premium-photo/helping-poor-old-women-children-from-charity-fun-flood-affected-starving-people_612827-93056.jpg',
-    tags: ['React', 'Headless CMS'],
-    hint: 'charity donation'
+    title: 'NexFix',
+    description: 'A one stop solution for hardware, paints, and tools online.',
+    image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751864524/nexfix_jdvwh3.png',
+    tags: ['MERN Stack', 'Cashfree API'],
+    hint: 'hardware ecommerce website'
   },
   {
     title: 'HackiN',
@@ -33,11 +33,11 @@ const projects = [
     hint: 'hackathon website'
   },
   {
-    title: 'Socio',
-    description: 'Built for colleges to connect with societies and alumni.',
-    image: 'https://imgs.search.brave.com/d6WgShTtqdNMGxaug1evU4HJapv52kos8YoM7Zc4hJs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzM2NzE5Mjk3L3Iv/aWwvZWJmMWU3LzUw/MDczNTc5ODgvaWxf/NjAweDYwMC41MDA3/MzU3OTg4X2dkdDcu/anBn',
-    tags: ['Web Design', 'Animation'],
-    hint: 'college students network'
+    title: 'SprintSync',
+    description: 'a platform to assist software developers to boost productivity.',
+    image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751866610/sprints_c2bvb5.png',
+    tags: ['MERN Stack', 'Productivity Tools'],
+    hint: 'productivity platform'
   },
 ];
 
