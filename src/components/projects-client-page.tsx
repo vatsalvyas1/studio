@@ -36,7 +36,7 @@ const allProjects = [
   {
     title: 'VolunTier',
     description: 'volunTier is a platform dedicated to connecting volunteers with NGOs',
-    image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751865934/voluntier_lkywwk.png',
+    image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751867180/voluntier_tko1du.png',
     tags: ['React', 'Firebase Auth', 'Firestore DB'],
     hint: 'ngo volunteer platform'
   },

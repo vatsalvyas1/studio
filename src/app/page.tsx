@@ -7,12 +7,14 @@ import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CtaSection from '@/components/sections/CtaSection';
 import Footer from '@/components/layout/Footer';
 import { AnimatedSeparator } from '@/components/animated-separator';
+import { Analytics } from "@vercel/analytics/next"
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-1">
+        <Analytics/>
         <HeroSection />
         <ClientsSection />
         <ServicesSection />
