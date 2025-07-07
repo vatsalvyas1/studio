@@ -20,11 +20,11 @@ const allProjects = [
     hint: 'hardware ecommerce website'
   },
   {
-    title: 'Darpan',
-    description: 'online fund rasing platform for people in need',
-    image: 'https://img.freepik.com/premium-photo/helping-poor-old-women-children-from-charity-fun-flood-affected-starving-people_612827-93056.jpg',
-    tags: ['React', 'Headless CMS'],
-    hint: 'charity donation'
+    title: 'PreScripto',
+    description: 'book appointment with trusted doctors and get prescriptions online',
+    image: 'https://res.cloudinary.com/dhrhfuzb0/image/upload/v1751867953/prescripto_bzbk10.jpg',
+    tags: ['MERN Stack', 'Cloudinary'],
+    hint: 'healthcare appointment booking'
   },
   {
     title: 'HackIn',
