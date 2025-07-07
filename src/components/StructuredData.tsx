@@ -3,7 +3,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "3AM Devs",
-    alternateName: ["3AM Dev", "3 AM Devs", "Three AM Devs", "3AM Developers", "3AM Devs Agency", "3AM Devs Digital Solutions", "3AM Devs Web Development", "3AM Devs Digital Marketing", "3AM Devs Next.js Experts", "3AM Devs React Specialists", "3AM Devs Custom Software", "3AM Devs SEO Services", "3AM Devs Website Builders"],
+    alternateName: ["3AM Dev", "3 AM Devs", "Three AM Devs", "3AM Developers", "3AM Devs Agency", "3AM Devs Digital Solutions", "3AM Devs Web Development", "3AM Devs Digital Marketing", "3AM Devs Next.js Experts", "3AM Devs React Specialists", "3AM Devs Custom Software", "3AM Devs SEO Services", "3AM Devs Website Builders", "3 AM Devs","3 AM Developers", "3 am devs", "3 am developers", "3amdevs", "3am developers", "3am devs agency", "3am devs digital solutions", "3am devs web development", "3am devs digital marketing", "3am devs next.js experts", "3am devs react specialists", "3am devs custom software", "3am devs seo services", "3am devs website builders"],
     url: "https://3amdevs.com",
     logo: {
       "@type": "ImageObject",
