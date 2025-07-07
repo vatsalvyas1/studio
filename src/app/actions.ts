@@ -1,6 +1,7 @@
 "use server";
 
 import * as z from "zod";
+import nodemailer from "nodemailer";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -41,23 +42,30 @@ export async function submitContactFormAction(
   try {
     const { name, email, message } = validatedFields.data;
 
-    // Send email using our API route
-    const response = await fetch(
-      `${
-        process.env.NEXT_PUBLIC_APP_URL || "http://localhost:9002"
-      }/api/send-email`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, message }),
-      }
-    );
+    // Send email directly using nodemailer
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
 
-    if (!response.ok) {
-      throw new Error("Failed to send email");
-    }
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: "3amdevss@gmail.com",
+      subject: `New Contact Form Submission from ${name}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, "<br>")}</p>
+      `,
+      replyTo: email,
+    };
+
+    await transporter.sendMail(mailOptions);
 
     return {
       message: "Your message has been sent successfully!",
